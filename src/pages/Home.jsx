@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Sparkles, Layers, Zap, Star, ArrowUpRight, MessageCircle, ArrowRight, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// Public folder ki select ki hui 3 images
+// Public folder mascot assets
 const heroMascots = [
   '/mascot.png',
   '/mascot-marketing.png',
@@ -25,7 +25,7 @@ export default function Home() {
         setFade(true);
       }, 300); // 300ms fade transition delay
 
-    }, 3000); // Har 3 sec me change hoga
+    }, 3000); // 3-second rotation cycle
 
     return () => clearInterval(interval);
   }, []);
@@ -74,14 +74,14 @@ export default function Home() {
               
               <button
                 onClick={handleWhatsAppRedirect}
-                className="px-8 py-4 rounded-full border border-[#25D366]/70 text-[#25D366] font-semibold hover:bg-[#25D366] hover:text-white transition-all backdrop-blur-md shadow-[0_0_15px_rgba(37,211,102,0.3)] flex items-center gap-2"
+                className="px-8 py-4 rounded-full border border-[#25D366]/70 text-[#25D366] font-semibold hover:bg-[#25D366] hover:text-white transition-all backdrop-blur-md shadow-[0_0_15px_rgba(37,211,102,0.3)] flex items-center gap-2 cursor-pointer"
               >
                 <MessageCircle className="w-5 h-5" /> Quick WhatsApp
               </button>
             </div>
           </div>
 
-          {/* Right Column: Standardized Dynamic 3 Mascot Loop */}
+          {/* Right Column: Dynamic 3 Mascot Loop */}
           <div className="lg:col-span-5 flex justify-center items-center relative">
             <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
               <div className="absolute w-48 h-48 md:w-60 md:h-60 bg-gradient-to-tr from-[#6B21AB] via-[#FC5BDA] to-[#FFD700] rounded-full blur-3xl opacity-40 pointer-events-none"></div>
@@ -130,7 +130,7 @@ export default function Home() {
           ))}
         </section>
 
-        {/* 3-CARD CALLOUT BANNER */}
+        {/* 3-Card Callout Banner */}
         <section className="pt-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             
@@ -214,7 +214,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* HIGH CONVERTING BOTTOM BANNER */}
+        {/* Bottom CTA Banner */}
         <section className="pt-4">
           <div className="rounded-3xl bg-gradient-to-r from-[#6B21AB]/40 via-black to-[#FC5BDA]/20 border border-[#FC5BDA]/40 p-10 md:p-14 text-center space-y-6 relative overflow-hidden backdrop-blur-md shadow-[0_0_50px_rgba(107,33,171,0.3)]">
             
@@ -232,7 +232,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <button
                 onClick={handleWhatsAppRedirect}
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#25D366] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#1ebd53] hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,211,102,0.4)]"
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#25D366] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#1ebd53] hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,211,102,0.4)] cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4" /> Start WhatsApp Chat
               </button>

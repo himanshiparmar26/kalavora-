@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
   X, 
@@ -19,6 +19,25 @@ export default function Blog() {
   const whatsappNumber = "917877145565";
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedPost, setSelectedPost] = useState(null);
+
+  // Keyboard navigation & body scroll-lock management
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedPost(null);
+    };
+
+    if (selectedPost) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedPost]);
 
   const categories = [
     'All',
@@ -349,8 +368,14 @@ export default function Blog() {
 
       {/* Article Reader Modal */}
       {selectedPost && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-          <div className="relative w-full max-w-3xl bg-[#111111] border border-[#FC5BDA]/50 rounded-3xl overflow-hidden p-6 md:p-8 space-y-6 shadow-[0_0_40px_rgba(252,91,218,0.3)] my-8 max-h-[90vh] overflow-y-auto">
+        <div 
+          onClick={() => setSelectedPost(null)}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-3xl bg-[#111111] border border-[#FC5BDA]/50 rounded-3xl overflow-hidden p-6 md:p-8 space-y-6 shadow-[0_0_40px_rgba(252,91,218,0.3)] my-8 max-h-[90vh] overflow-y-auto"
+          >
             
             <button 
               onClick={() => setSelectedPost(null)}

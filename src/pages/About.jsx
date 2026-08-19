@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
   Search, 
@@ -28,8 +28,27 @@ export default function About() {
 
   const handleWhatsAppRedirect = () => {
     const text = "Hi Kalavora Team! I want to discuss a project with you.";
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
   };
+
+  // Close modal on Escape key press & lock scroll when active
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedIdx(null);
+    };
+
+    if (selectedIdx !== null) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedIdx]);
 
   const services = [
     {
@@ -99,7 +118,7 @@ export default function About() {
 
       <div className="max-w-6xl mx-auto space-y-12 relative z-10">
         
-        {/* 1. Header Section with Standardized Mascot #1 */}
+        {/* 1. Header Section */}
         <div className="grid md:grid-cols-12 gap-8 items-center text-center md:text-left">
           <div className="md:col-span-8 space-y-5">
             <div className="inline-block p-[1px] bg-gradient-to-r from-[#FFD700] via-[#FC5BDA] to-[#6B21AB]">
@@ -123,7 +142,7 @@ export default function About() {
             </p>
           </div>
 
-          {/* Top Hero Mascot #1 (Fixed Standardized Size) */}
+          {/* Top Hero Mascot */}
           <div className="md:col-span-4 flex justify-center items-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
               <div className="absolute w-48 h-48 md:w-60 md:h-60 bg-[#FC5BDA]/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -235,7 +254,7 @@ export default function About() {
           })}
         </div>
 
-        {/* 3. Bottom Banner with Mascot #3 */}
+        {/* 3. Bottom Banner with Mascot */}
         <div className="rounded-3xl border border-[#6B21AB]/50 bg-gradient-to-r from-[#6B21AB]/20 via-black to-[#FC5BDA]/20 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_0_30px_rgba(107,33,171,0.3)]">
           <div className="space-y-3 text-center md:text-left">
             <h3 className="text-2xl md:text-3xl font-bold font-serif text-white">
@@ -247,7 +266,7 @@ export default function About() {
             <button
               type="button"
               onClick={handleWhatsAppRedirect}
-              className="px-6 py-3 rounded-full bg-[#25D366] text-white font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-[#1ebd53] transition-all shadow-[0_0_20px_rgba(37,211,102,0.4)]"
+              className="px-6 py-3 rounded-full bg-[#25D366] text-white font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-[#1ebd53] transition-all shadow-[0_0_20px_rgba(37,211,102,0.4)] cursor-pointer"
             >
               <MessageCircle className="w-4 h-4" /> Direct WhatsApp Chat
             </button>
@@ -264,12 +283,19 @@ export default function About() {
 
       {/* Detail Modal Overlay */}
       {selectedIdx !== null && (
-        <div className="fixed inset-0 z-50 bg-[#000000]/85 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#000000] border-2 border-[#FC5BDA] max-w-2xl w-full p-6 md:p-8 relative shadow-[0_0_40px_rgba(252,91,218,0.25)] overflow-hidden">
+        <div 
+          className="fixed inset-0 z-50 bg-[#000000]/85 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={() => setSelectedIdx(null)}
+        >
+          <div 
+            className="bg-[#000000] border-2 border-[#FC5BDA] max-w-2xl w-full p-6 md:p-8 relative shadow-[0_0_40px_rgba(252,91,218,0.25)] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
             
             <button 
               type="button"
               onClick={() => setSelectedIdx(null)}
+              aria-label="Close details"
               className="absolute top-4 right-4 text-gray-400 hover:text-[#FFFFFF] p-1.5 border border-[#6B21AB] bg-[#000000] cursor-pointer z-20"
             >
               <X className="w-5 h-5 text-[#FC5BDA]" />

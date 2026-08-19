@@ -88,7 +88,7 @@ export default function Services() {
               key={idx}
               className="px-2.5 py-1 rounded-md bg-black/60 border border-[#FC5BDA]/20 text-[10px] text-gray-300 font-medium"
             >
-              {tag}
+              #{tag}
             </span>
           ))}
         </div>

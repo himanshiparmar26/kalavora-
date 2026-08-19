@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, MessageCircle, Sparkles } from 'lucide-react';
 
-// Mascot imports matching your exact mapping
 import mascotContact from '/mascot-contact.png';
 import mascotSuccess from '/mascot-success.png';
 
@@ -24,7 +23,6 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Auto-formatted WhatsApp Message Template
     const textMessage = 
       `*New Inquiry - Kalavora Website*\n\n` +
       `👤 *Name:* ${formData.name}\n` +
@@ -38,15 +36,15 @@ export default function Contact() {
   };
 
   return (
-    <section className="bg-[#000000] text-[#FFFFFF] py-20 px-6 relative w-full min-h-screen">
+    <section className="bg-[#000000] text-[#FFFFFF] py-20 px-6 relative w-full min-h-screen overflow-hidden">
       
-      {/* Background Glow Effects */}
+      {/* Background Neon Glows */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#6B21AB]/20 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-[#FC5BDA]/15 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto space-y-12 relative z-10">
         
-        {/* Standardized Header with Coffee Cup Penguin Mascot */}
+        {/* Header with Mascot */}
         <div className="grid md:grid-cols-12 gap-8 items-center text-center md:text-left pt-2">
           <div className="md:col-span-8 space-y-3">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FFD700]/60 bg-[#FFD700]/10 text-[#FFD700] text-xs font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(255,215,0,0.25)]">
@@ -62,13 +60,12 @@ export default function Contact() {
             </p>
           </div>
 
-          {/* Standardized Mascot Container */}
           <div className="md:col-span-4 flex justify-center items-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
               <div className="absolute w-48 h-48 md:w-60 md:h-60 bg-[#FC5BDA]/30 rounded-full blur-3xl pointer-events-none"></div>
               <img 
                 src={mascotContact} 
-                alt="Coffee Cup Penguin Client Support" 
+                alt="Kalavora Support Mascot" 
                 className="w-full h-full object-contain drop-shadow-[0_0_35px_rgba(252,91,218,0.7)] relative z-10 hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -77,7 +74,7 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
           
-          {/* Left Column: Contact Information (2 cols) */}
+          {/* Left Column: Contact Details */}
           <div className="lg:col-span-2 space-y-6">
             <h2 className="text-2xl font-bold font-serif text-[#FFFFFF] mb-4">Contact Information</h2>
 
@@ -115,12 +112,12 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Direct WhatsApp Callout Card with Thumbs Up Penguin */}
+            {/* Direct WhatsApp Box */}
             <div className="p-6 rounded-3xl bg-gradient-to-r from-[#25D366]/20 to-black border border-[#25D366]/40 text-center space-y-4">
               <div className="flex items-center justify-center gap-3">
                 <img 
                   src={mascotSuccess} 
-                  alt="Thumbs Up Penguin Success" 
+                  alt="Kalavora Success Mascot" 
                   className="w-14 h-14 object-contain drop-shadow-[0_0_10px_rgba(37,211,102,0.5)]"
                 />
                 <div className="text-left">
@@ -140,13 +137,11 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right Column: Lead Form (3 cols) */}
+          {/* Right Column: Lead Form */}
           <div className="lg:col-span-3 rounded-3xl bg-[#6B21AB]/10 border border-[#FC5BDA]/30 p-8 backdrop-blur-md relative">
             <h2 className="text-2xl font-bold font-serif text-[#FFFFFF] mb-6">Send a Message</h2>
 
             <form onSubmit={handleSubmit} className="space-y-5">
-              
-              {/* Name & Phone */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-300">Your Name *</label>
@@ -175,7 +170,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Email */}
               <div className="space-y-2">
                 <label className="text-xs font-bold text-gray-300">Your Email *</label>
                 <input
@@ -189,7 +183,6 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Service Dropdown & Budget Dropdown */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-300">Service Required *</label>
@@ -197,16 +190,16 @@ export default function Contact() {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-black/80 border border-[#FC5BDA]/30 text-white text-xs focus:outline-none focus:border-[#FFD700] transition-colors cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-black border border-[#FC5BDA]/30 text-white text-xs focus:outline-none focus:border-[#FFD700] transition-colors cursor-pointer"
                   >
-                    <option value="Brand Identity & Design">Brand Identity & Design</option>
-                    <option value="Digital Marketing & Ads">Digital Marketing & Performance Ads</option>
-                    <option value="Social Media Management">Social Media Management</option>
-                    <option value="Web Development">Web Development</option>
-                    <option value="Video Editing & Motion Reels">Video Editing & Motion Reels</option>
-                    <option value="SEO & Growth Strategy">SEO & Growth Strategy</option>
-                    <option value="Luxury Invitations & Event Cards">Luxury Invitations & Event Cards</option>
-                    <option value="Magazine & Editorial Layouts">Magazine & Editorial Layouts</option>
+                    <option value="Brand Identity & Design" className="bg-black text-white">Brand Identity & Design</option>
+                    <option value="Digital Marketing & Ads" className="bg-black text-white">Digital Marketing & Performance Ads</option>
+                    <option value="Social Media Management" className="bg-black text-white">Social Media Management</option>
+                    <option value="Web Development" className="bg-black text-white">Web Development</option>
+                    <option value="Video Editing & Motion Reels" className="bg-black text-white">Video Editing & Motion Reels</option>
+                    <option value="SEO & Growth Strategy" className="bg-black text-white">SEO & Growth Strategy</option>
+                    <option value="Luxury Invitations & Event Cards" className="bg-black text-white">Luxury Invitations & Event Cards</option>
+                    <option value="Magazine & Editorial Layouts" className="bg-black text-white">Magazine & Editorial Layouts</option>
                   </select>
                 </div>
 
@@ -216,17 +209,16 @@ export default function Contact() {
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-black/80 border border-[#FC5BDA]/30 text-white text-xs focus:outline-none focus:border-[#FFD700] transition-colors cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-black border border-[#FC5BDA]/30 text-white text-xs focus:outline-none focus:border-[#FFD700] transition-colors cursor-pointer"
                   >
-                    <option value="₹5,000 - ₹10,000">₹5,000 - ₹10,000</option>
-                    <option value="₹10,000 - ₹25,000">₹10,000 - ₹25,000</option>
-                    <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000</option>
-                    <option value="₹50,000+">₹50,000+</option>
+                    <option value="₹5,000 - ₹10,000" className="bg-black text-white">₹5,000 - ₹10,000</option>
+                    <option value="₹10,000 - ₹25,000" className="bg-black text-white">₹10,000 - ₹25,000</option>
+                    <option value="₹25,000 - ₹50,000" className="bg-black text-white">₹25,000 - ₹50,000</option>
+                    <option value="₹50,000+" className="bg-black text-white">₹50,000+</option>
                   </select>
                 </div>
               </div>
 
-              {/* Message Area */}
               <div className="space-y-2">
                 <label className="text-xs font-bold text-gray-300">Message / Project Details</label>
                 <textarea
@@ -239,14 +231,12 @@ export default function Contact() {
                 ></textarea>
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#FC5BDA] via-[#9333EA] to-[#FC5BDA] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.01] transition-all cursor-pointer shadow-[0_0_20px_rgba(252,91,218,0.5)]"
               >
                 Send Message via WhatsApp <Send className="w-4 h-4" />
               </button>
-
             </form>
           </div>
 
