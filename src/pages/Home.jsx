@@ -1,9 +1,34 @@
-import React from 'react';
-import { Sparkles, Layers, Zap, Star, ArrowUpRight, MessageCircle, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Sparkles, Layers, Zap, Star, ArrowUpRight, MessageCircle, ArrowRight, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+// Public folder ki select ki hui 3 images
+const heroMascots = [
+  '/mascot.png',
+  '/mascot-marketing.png',
+  '/mascot-work.png'
+];
 
 export default function Home() {
   const whatsappNumber = "917877145565";
+
+  // Auto Mascot Switch State
+  const [currentMascotIndex, setCurrentMascotIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+
+      setTimeout(() => {
+        setCurrentMascotIndex((prevIndex) => (prevIndex + 1) % heroMascots.length);
+        setFade(true);
+      }, 300); // 300ms fade transition delay
+
+    }, 3000); // Har 3 sec me change hoga
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleWhatsAppRedirect = () => {
     const text = "Hi Kalavora Team! I want to discuss a project with you.";
@@ -56,18 +81,17 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column: Floating Mascot Showcase */}
+          {/* Right Column: Standardized Dynamic 3 Mascot Loop */}
           <div className="lg:col-span-5 flex justify-center items-center relative">
-            <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-3xl p-6 flex flex-col items-center justify-center">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+              <div className="absolute w-48 h-48 md:w-60 md:h-60 bg-gradient-to-tr from-[#6B21AB] via-[#FC5BDA] to-[#FFD700] rounded-full blur-3xl opacity-40 pointer-events-none"></div>
               
-              {/* Soft Backlight Glow */}
-              <div className="absolute w-60 h-60 bg-gradient-to-tr from-[#6B21AB] via-[#FC5BDA] to-[#FFD700] rounded-full blur-3xl opacity-40"></div>
-
-              {/* Mascot Image */}
               <img 
-                src="/mascot.png" 
-                alt="Kalavora Mascot" 
-                className="w-64 md:w-80 h-auto object-contain mix-blend-screen drop-shadow-[0_0_40px_rgba(252,91,218,0.8)] relative z-10" 
+                src={heroMascots[currentMascotIndex]} 
+                alt="Kalavora Mascot Dynamic" 
+                className={`w-full h-full object-contain drop-shadow-[0_0_35px_rgba(252,91,218,0.7)] relative z-10 transition-all duration-300 transform ${
+                  fade ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                }`} 
               />
             </div>
           </div>
@@ -106,8 +130,92 @@ export default function Home() {
           ))}
         </section>
 
-        {/* HIGH CONVERTING BOTTOM BANNER */}
+        {/* 3-CARD CALLOUT BANNER */}
         <section className="pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            
+            {/* Card 1: Request Proposal */}
+            <div className="relative rounded-3xl bg-gradient-to-b from-[#6B21AB]/40 via-black to-[#3B0764] p-8 border border-[#FC5BDA]/40 flex flex-col justify-between overflow-hidden group hover:scale-[1.02] transition-all shadow-[0_10px_30px_rgba(107,33,171,0.3)] min-h-[400px]">
+              <div className="space-y-4 z-10">
+                <h3 className="text-2xl md:text-3xl font-extrabold font-serif text-white leading-snug">
+                  Want to turn your brand into a high-ticket client magnet?
+                </h3>
+                <p className="text-[#FFD700] text-xs uppercase tracking-widest font-bold">Request a proposal</p>
+              </div>
+
+              <div className="relative z-10 flex justify-between items-end pt-6">
+                <Link
+                  to="/contact"
+                  className="p-4 rounded-full bg-[#FFD700] text-black hover:bg-white transition-colors shadow-lg font-bold"
+                >
+                  <ArrowUpRight className="w-6 h-6" />
+                </Link>
+
+                <img 
+                  src="/mascot-marketing.png" 
+                  alt="Marketing Mascot" 
+                  className="w-32 h-32 object-contain drop-shadow-[0_10px_20px_rgba(252,91,218,0.5)] group-hover:scale-110 transition-transform duration-500" 
+                />
+              </div>
+            </div>
+
+            {/* Card 2: Growth Team */}
+            <div className="relative rounded-3xl bg-gradient-to-b from-[#FC5BDA]/30 via-black to-[#6B21AB]/50 p-8 border border-[#FC5BDA]/40 flex flex-col justify-between overflow-hidden group hover:scale-[1.02] transition-all shadow-[0_10px_30px_rgba(252,91,218,0.3)] min-h-[400px]">
+              <div className="space-y-4 z-10">
+                <h3 className="text-2xl md:text-3xl font-extrabold font-serif text-white leading-snug">
+                  Ready to scale your ads & ROI with modern strategy?
+                </h3>
+                <p className="text-[#FC5BDA] text-xs uppercase tracking-widest font-bold">Talk to our growth team</p>
+              </div>
+
+              <div className="relative z-10 flex justify-between items-end pt-6">
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=Hi%20Kalavora!%20I%20want%20to%20scale%20my%20digital%20marketing.`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-4 rounded-full bg-[#FC5BDA] text-white hover:bg-[#FFD700] hover:text-black transition-colors shadow-lg font-bold"
+                >
+                  <Briefcase className="w-6 h-6" />
+                </a>
+
+                <img 
+                  src="/mascot.png" 
+                  alt="Dev Mascot" 
+                  className="w-32 h-32 object-contain drop-shadow-[0_10px_20px_rgba(107,33,171,0.5)] group-hover:scale-110 transition-transform duration-500" 
+                />
+              </div>
+            </div>
+
+            {/* Card 3: Portfolio Showcase */}
+            <div className="relative rounded-3xl bg-gradient-to-b from-[#18181B] via-black to-[#6B21AB]/40 p-8 border border-[#FFD700]/40 flex flex-col justify-between overflow-hidden group hover:scale-[1.02] transition-all shadow-[0_10px_30px_rgba(255,215,0,0.2)] min-h-[400px]">
+              <div className="space-y-4 z-10">
+                <h3 className="text-2xl md:text-3xl font-extrabold font-serif text-white leading-snug">
+                  Want to see how we build iconic brand identities?
+                </h3>
+                <p className="text-[#FFD700] text-xs uppercase tracking-widest font-bold">Explore our recent work</p>
+              </div>
+
+              <div className="relative z-10 flex justify-between items-end pt-6">
+                <Link
+                  to="/our-work"
+                  className="p-4 rounded-full bg-white text-black hover:bg-[#FC5BDA] hover:text-white transition-colors shadow-lg font-bold"
+                >
+                  <ArrowRight className="w-6 h-6" />
+                </Link>
+
+                <img 
+                  src="/mascot-work.png" 
+                  alt="Work Mascot" 
+                  className="w-32 h-32 object-contain drop-shadow-[0_10px_20px_rgba(255,215,0,0.5)] group-hover:scale-110 transition-transform duration-500" 
+                />
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* HIGH CONVERTING BOTTOM BANNER */}
+        <section className="pt-4">
           <div className="rounded-3xl bg-gradient-to-r from-[#6B21AB]/40 via-black to-[#FC5BDA]/20 border border-[#FC5BDA]/40 p-10 md:p-14 text-center space-y-6 relative overflow-hidden backdrop-blur-md shadow-[0_0_50px_rgba(107,33,171,0.3)]">
             
             <h2 className="text-3xl md:text-5xl font-extrabold font-serif text-white">

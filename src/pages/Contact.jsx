@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, MessageCircle, Sparkles } from 'lucide-react';
 
+// Mascot imports matching your exact mapping
+import mascotContact from '/mascot-contact.png';
+import mascotSuccess from '/mascot-success.png';
+
 export default function Contact() {
   const whatsappNumber = "917877145565";
 
@@ -42,19 +46,33 @@ export default function Contact() {
 
       <div className="max-w-6xl mx-auto space-y-12 relative z-10">
         
-        {/* Header */}
-        <div className="text-center space-y-3 pt-2">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FFD700]/60 bg-[#FFD700]/10 text-[#FFD700] text-xs font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(255,215,0,0.25)]">
-            <Sparkles className="w-3.5 h-3.5 text-[#FFD700]" /> GET IN TOUCH
+        {/* Standardized Header with Coffee Cup Penguin Mascot */}
+        <div className="grid md:grid-cols-12 gap-8 items-center text-center md:text-left pt-2">
+          <div className="md:col-span-8 space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FFD700]/60 bg-[#FFD700]/10 text-[#FFD700] text-xs font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(255,215,0,0.25)]">
+              <Sparkles className="w-3.5 h-3.5 text-[#FFD700]" /> GET IN TOUCH
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl font-extrabold font-serif text-[#FFFFFF]">
+              Let's Build Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#FC5BDA] to-[#FFFFFF] italic">Extraordinary</span>
+            </h1>
+            
+            <p className="text-gray-300 text-sm md:text-base max-w-xl font-light">
+              Ready to elevate your brand? Fill out the form or reach out directly on WhatsApp.
+            </p>
           </div>
-          
-          <h1 className="text-4xl md:text-5xl font-extrabold font-serif text-[#FFFFFF]">
-            Let's Build Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#FC5BDA] to-[#FFFFFF] italic">Extraordinary</span>
-          </h1>
-          
-          <p className="text-gray-300 text-sm md:text-base max-w-xl mx-auto font-light">
-            Ready to elevate your brand? Fill out the form or reach out directly on WhatsApp.
-          </p>
+
+          {/* Standardized Mascot Container */}
+          <div className="md:col-span-4 flex justify-center items-center">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+              <div className="absolute w-48 h-48 md:w-60 md:h-60 bg-[#FC5BDA]/30 rounded-full blur-3xl pointer-events-none"></div>
+              <img 
+                src={mascotContact} 
+                alt="Coffee Cup Penguin Client Support" 
+                className="w-full h-full object-contain drop-shadow-[0_0_35px_rgba(252,91,218,0.7)] relative z-10 hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
@@ -97,13 +115,25 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="p-6 rounded-3xl bg-gradient-to-r from-[#25D366]/20 to-black border border-[#25D366]/40 text-center space-y-3">
-              <p className="text-xs text-gray-300 font-light">Prefer direct chat over forms?</p>
+            {/* Direct WhatsApp Callout Card with Thumbs Up Penguin */}
+            <div className="p-6 rounded-3xl bg-gradient-to-r from-[#25D366]/20 to-black border border-[#25D366]/40 text-center space-y-4">
+              <div className="flex items-center justify-center gap-3">
+                <img 
+                  src={mascotSuccess} 
+                  alt="Thumbs Up Penguin Success" 
+                  className="w-14 h-14 object-contain drop-shadow-[0_0_10px_rgba(37,211,102,0.5)]"
+                />
+                <div className="text-left">
+                  <h4 className="text-xs font-bold text-[#FFD700] uppercase tracking-wider">Fast Execution</h4>
+                  <p className="text-[11px] text-gray-300 font-light">Prefer direct chat over forms?</p>
+                </div>
+              </div>
+
               <a
                 href={`https://wa.me/${whatsappNumber}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-[#25D366] text-white font-bold text-xs flex items-center justify-center gap-2 hover:bg-[#1ebd53] transition-all shadow-[0_0_15px_rgba(37,211,102,0.4)]"
+                className="w-full py-3 px-4 rounded-xl bg-[#25D366] text-white font-bold text-xs flex items-center justify-center gap-2 hover:bg-[#1ebd53] transition-all shadow-[0_0_15px_rgba(37,211,102,0.4)] cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4" /> Quick Chat on WhatsApp
               </a>
