@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import OurWork from './pages/OurWork'; // Workplace ko OurWork se connect kiya
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import Calculator from './pages/Calculator';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/workplace" element={<OurWork />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/calculator" element={<Calculator />} />
           </Routes>
         </main>
 

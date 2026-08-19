@@ -6,7 +6,8 @@ import {
   Briefcase, 
   FolderKanban, 
   BookOpen, 
-  Mail 
+  Mail,
+  Calculator
 } from 'lucide-react';
 
 export default function Navbar() {
@@ -27,9 +28,10 @@ export default function Navbar() {
     { name: 'HOME', path: '/', icon: <Home className="w-4 h-4 text-[#FFD700]" /> },
     { name: 'ABOUT US', path: '/about', icon: <User className="w-4 h-4 text-[#FC5BDA]" /> },
     { name: 'SERVICES', path: '/services', icon: <Briefcase className="w-4 h-4 text-[#FFD700]" /> },
-    { name: 'OUR WORK', path: '/workplace', icon: <FolderKanban className="w-4 h-4 text-[#FC5BDA]" /> },
-    { name: 'BLOG', path: '/blog', icon: <BookOpen className="w-4 h-4 text-[#FFD700]" /> },
-    { name: 'CONTACT US', path: '/contact', icon: <Mail className="w-4 h-4 text-[#FC5BDA]" /> },
+    { name: 'ESTIMATOR', path: '/calculator', icon: <Calculator className="w-4 h-4 text-[#FC5BDA]" /> },
+    { name: 'OUR WORK', path: '/workplace', icon: <FolderKanban className="w-4 h-4 text-[#FFD700]" /> },
+    { name: 'BLOG', path: '/blog', icon: <BookOpen className="w-4 h-4 text-[#FC5BDA]" /> },
+    { name: 'CONTACT US', path: '/contact', icon: <Mail className="w-4 h-4 text-[#FFD700]" /> },
   ];
 
   return (
@@ -53,7 +55,7 @@ export default function Navbar() {
                 onMouseLeave={() => setHoveredIndex(null)}
                 className="relative flex flex-col items-center group cursor-pointer pt-2"
               >
-                {/* Floating Icon (No Cutting Bug Fix) */}
+                {/* Floating Icon */}
                 <div 
                   className={`absolute -top-6 transition-all duration-300 ease-out transform ${
                     isHovered 
