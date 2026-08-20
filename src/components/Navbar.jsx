@@ -37,13 +37,22 @@ export default function Navbar() {
   return (
     <nav 
       className={`w-full bg-[#000000]/95 backdrop-blur-md border-b-2 border-[#FFD700] sticky top-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled ? 'pt-7 pb-2 shadow-[0_10px_25px_rgba(0,0,0,0.9)]' : 'pt-9 pb-3 shadow-[0_5px_20px_rgba(0,0,0,0.7)]'
+        isScrolled ? 'py-3 shadow-[0_10px_25px_rgba(0,0,0,0.9)]' : 'py-5 shadow-[0_5px_20px_rgba(0,0,0,0.7)]'
       }`}
     >
-      <div className="max-w-6xl mx-auto flex items-center justify-center px-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
         
-        {/* Navigation Items */}
-        <div className="flex items-center justify-center gap-6 md:gap-10 flex-wrap">
+        {/* Brand Logo Header Left Side */}
+        <Link to="/" className="flex items-center gap-3 group">
+          <img 
+            src="/logo.png" 
+            alt="Kalavora Logo" 
+            className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_12px_rgba(252,91,218,0.5)] group-hover:scale-105 transition-transform duration-300" 
+          />
+        </Link>
+
+        {/* Navigation Items Right Side */}
+        <div className="flex items-center justify-center gap-6 md:gap-8 flex-wrap">
           {navItems.map((item, index) => {
             const isHovered = hoveredIndex === index;
             const isActive = location.pathname === item.path;
