@@ -24,11 +24,11 @@ export default function OurWork() {
   const portfolioProjects = [
     {
       id: 1,
-      title: "Tamanna Aircon Brand Identity",
+      title: "Kalavora Brand Visual Identity System",
       category: "Branding",
-      image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
-      description: "Complete visual guidelines, modern logo system, and visiting card design.",
-      tags: ["Logo", "Brand Guide", "Print"],
+      image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&q=80&w=800",
+      description: "Complete visual guidelines, modern logo typography, and high-converting marketing assets.",
+      tags: ["Logo", "Brand Guide", "Identity"],
       type: "image"
     },
     {
@@ -63,7 +63,7 @@ export default function OurWork() {
       id: 5,
       title: "Kalavora Identity Bento Grid",
       category: "Branding",
-      image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
       description: "Modern neon-dark studio branding and social media templates.",
       tags: ["Identity", "Typography", "Bento"],
       type: "image"

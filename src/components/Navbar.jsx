@@ -37,13 +37,13 @@ export default function Navbar() {
   return (
     <nav 
       className={`w-full bg-[#000000]/95 backdrop-blur-md border-b-2 border-[#FFD700] sticky top-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled ? 'py-3 shadow-[0_10px_25px_rgba(0,0,0,0.9)]' : 'py-5 shadow-[0_5px_20px_rgba(0,0,0,0.7)]'
+        isScrolled ? 'pt-7 pb-3 shadow-[0_10px_25px_rgba(0,0,0,0.9)]' : 'pt-9 pb-4 shadow-[0_5px_20px_rgba(0,0,0,0.7)]'
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
         
         {/* Brand Logo Header Left Side */}
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center gap-3 group shrink-0">
           <img 
             src="/logo.png" 
             alt="Kalavora Logo" 
@@ -62,13 +62,13 @@ export default function Navbar() {
                 key={index}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="relative flex flex-col items-center group cursor-pointer pt-2"
+                className="relative flex flex-col items-center group cursor-pointer pt-3"
               >
-                {/* Floating Icon */}
+                {/* Floating Icon (Fixed Top Cutting Issue) */}
                 <div 
-                  className={`absolute -top-6 transition-all duration-300 ease-out transform ${
+                  className={`absolute -top-7 transition-all duration-300 ease-out transform ${
                     isHovered 
-                      ? 'opacity-100 -translate-y-1 scale-110' 
+                      ? 'opacity-100 -translate-y-0.5 scale-110 z-10' 
                       : 'opacity-0 translate-y-2 scale-75 pointer-events-none'
                   }`}
                 >
