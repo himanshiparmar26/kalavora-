@@ -32,41 +32,36 @@ export default function Contact() {
       `💰 *Estimated Budget:* ${formData.budget}\n` +
       `📝 *Message:* ${formData.message || 'N/A'}`;
 
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`, '_blank');
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <section className="bg-[#000000] text-[#FFFFFF] py-20 px-6 relative w-full min-h-screen overflow-hidden">
+    <section id="contact" className="bg-[#FFFFFF] text-[#000000] py-20 px-6 relative w-full min-h-screen overflow-hidden font-sans">
       
-      {/* Background Neon Glows */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#6B21AB]/20 rounded-full blur-[150px] pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-[#FC5BDA]/15 rounded-full blur-[140px] pointer-events-none"></div>
-
-      <div className="max-w-6xl mx-auto space-y-12 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
         
         {/* Header with Mascot */}
         <div className="grid md:grid-cols-12 gap-8 items-center text-center md:text-left pt-2">
           <div className="md:col-span-8 space-y-3">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FFD700]/60 bg-[#FFD700]/10 text-[#FFD700] text-xs font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(255,215,0,0.25)]">
-              <Sparkles className="w-3.5 h-3.5 text-[#FFD700]" /> GET IN TOUCH
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#000000]/10 bg-[#000000]/[0.03] text-[#000000] text-xs font-bold tracking-widest uppercase">
+              <Sparkles className="w-3.5 h-3.5 text-[#6B21AB]" /> GET IN TOUCH
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-extrabold font-serif text-[#FFFFFF]">
-              Let's Build Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#FC5BDA] to-[#FFFFFF] italic">Extraordinary</span>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-[#000000] leading-tight tracking-tight">
+              Let's Build Something <span className="text-[#6B21AB] italic font-normal">Extraordinary</span>
             </h1>
             
-            <p className="text-gray-300 text-sm md:text-base max-w-xl font-light">
+            <p className="text-[#000000]/70 text-sm md:text-base max-w-xl font-medium leading-relaxed">
               Ready to elevate your brand? Fill out the form or reach out directly on WhatsApp.
             </p>
           </div>
 
           <div className="md:col-span-4 flex justify-center items-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
-              <div className="absolute w-48 h-48 md:w-60 md:h-60 bg-[#FC5BDA]/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="relative w-56 h-56 md:w-72 md:h-72 flex items-center justify-center">
               <img 
                 src={mascotContact} 
                 alt="Kalavora Support Mascot" 
-                className="w-full h-full object-contain drop-shadow-[0_0_35px_rgba(252,91,218,0.7)] relative z-10 hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-contain relative z-10 hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
@@ -76,75 +71,75 @@ export default function Contact() {
           
           {/* Left Column: Contact Details */}
           <div className="lg:col-span-2 space-y-6">
-            <h2 className="text-2xl font-bold font-serif text-[#FFFFFF] mb-4">Contact Information</h2>
+            <h2 className="text-2xl font-bold text-[#000000] mb-4">Contact Information</h2>
 
-            <div className="p-6 rounded-3xl bg-[#6B21AB]/10 border border-[#FC5BDA]/30 hover:border-[#FFD700] transition-colors flex items-center gap-4 backdrop-blur-md">
-              <div className="p-3.5 rounded-2xl bg-black border border-[#FC5BDA]/40 text-[#FC5BDA]">
+            <div className="p-6 rounded-3xl bg-[#000000]/[0.02] border border-[#000000]/10 hover:border-[#6B21AB]/40 transition-colors flex items-center gap-4">
+              <div className="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#000000]/10 text-[#6B21AB] shadow-sm">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xs text-gray-400 font-medium">Email Us</p>
-                <a href="mailto:kalavoraindia@gmail.com" className="text-sm font-bold text-white hover:text-[#FFD700] transition-colors">
+                <p className="text-xs text-[#000000]/60 font-medium">Email Us</p>
+                <a href="mailto:kalavoraindia@gmail.com" className="text-sm font-bold text-[#000000] hover:text-[#6B21AB] transition-colors">
                   kalavoraindia@gmail.com
                 </a>
               </div>
             </div>
 
-            <div className="p-6 rounded-3xl bg-[#6B21AB]/10 border border-[#FC5BDA]/30 hover:border-[#FFD700] transition-colors flex items-center gap-4 backdrop-blur-md">
-              <div className="p-3.5 rounded-2xl bg-black border border-[#FC5BDA]/40 text-[#FC5BDA]">
+            <div className="p-6 rounded-3xl bg-[#000000]/[0.02] border border-[#000000]/10 hover:border-[#6B21AB]/40 transition-colors flex items-center gap-4">
+              <div className="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#000000]/10 text-[#6B21AB] shadow-sm">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xs text-gray-400 font-medium">Call / WhatsApp Us</p>
-                <a href="tel:+917877145565" className="text-sm font-bold text-white hover:text-[#FFD700] transition-colors">
+                <p className="text-xs text-[#000000]/60 font-medium">Call / WhatsApp Us</p>
+                <a href="tel:+917877145565" className="text-sm font-bold text-[#000000] hover:text-[#6B21AB] transition-colors">
                   +91 78771 45565
                 </a>
               </div>
             </div>
 
-            <div className="p-6 rounded-3xl bg-[#6B21AB]/10 border border-[#FC5BDA]/30 hover:border-[#FFD700] transition-colors flex items-center gap-4 backdrop-blur-md">
-              <div className="p-3.5 rounded-2xl bg-black border border-[#FC5BDA]/40 text-[#FC5BDA]">
+            <div className="p-6 rounded-3xl bg-[#000000]/[0.02] border border-[#000000]/10 hover:border-[#6B21AB]/40 transition-colors flex items-center gap-4">
+              <div className="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#000000]/10 text-[#6B21AB] shadow-sm">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xs text-gray-400 font-medium">Location</p>
-                <p className="text-sm font-bold text-white">Kalavora Creative Studio, India</p>
+                <p className="text-xs text-[#000000]/60 font-medium">Location</p>
+                <p className="text-sm font-bold text-[#000000]">Kalavora Creative Studio, India</p>
               </div>
             </div>
 
             {/* Direct WhatsApp Box */}
-            <div className="p-6 rounded-3xl bg-gradient-to-r from-[#25D366]/20 to-black border border-[#25D366]/40 text-center space-y-4">
+            <div className="p-6 rounded-3xl bg-[#000000]/[0.02] border border-[#000000]/10 text-center space-y-4">
               <div className="flex items-center justify-center gap-3">
                 <img 
                   src={mascotSuccess} 
                   alt="Kalavora Success Mascot" 
-                  className="w-14 h-14 object-contain drop-shadow-[0_0_10px_rgba(37,211,102,0.5)]"
+                  className="w-14 h-14 object-contain"
                 />
                 <div className="text-left">
-                  <h4 className="text-xs font-bold text-[#FFD700] uppercase tracking-wider">Fast Execution</h4>
-                  <p className="text-[11px] text-gray-300 font-light">Prefer direct chat over forms?</p>
+                  <h4 className="text-xs font-bold text-[#6B21AB] uppercase tracking-wider">Fast Execution</h4>
+                  <p className="text-[11px] text-[#000000]/70 font-medium">Prefer direct chat over forms?</p>
                 </div>
               </div>
 
               <a
                 href={`https://wa.me/${whatsappNumber}`}
                 target="_blank"
-                rel="noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-[#25D366] text-white font-bold text-xs flex items-center justify-center gap-2 hover:bg-[#1ebd53] transition-all shadow-[0_0_15px_rgba(37,211,102,0.4)] cursor-pointer"
+                rel="noopener noreferrer"
+                className="w-full py-3 px-4 rounded-xl bg-[#25D366] text-[#FFFFFF] font-bold text-xs flex items-center justify-center gap-2 hover:bg-[#1ebd53] transition-all cursor-pointer shadow-sm"
               >
-                <MessageCircle className="w-4 h-4" /> Quick Chat on WhatsApp
+                <MessageCircle className="w-4 h-4 fill-current" /> Quick Chat on WhatsApp
               </a>
             </div>
           </div>
 
           {/* Right Column: Lead Form */}
-          <div className="lg:col-span-3 rounded-3xl bg-[#6B21AB]/10 border border-[#FC5BDA]/30 p-8 backdrop-blur-md relative">
-            <h2 className="text-2xl font-bold font-serif text-[#FFFFFF] mb-6">Send a Message</h2>
+          <div className="lg:col-span-3 rounded-3xl bg-[#000000]/[0.02] border border-[#000000]/10 p-8 relative">
+            <h2 className="text-2xl font-bold text-[#000000] mb-6">Send a Message</h2>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-300">Your Name *</label>
+                  <label className="text-xs font-bold text-[#000000]/80">Your Name *</label>
                   <input
                     type="text"
                     name="name"
@@ -152,12 +147,12 @@ export default function Contact() {
                     placeholder="John Doe"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-black/80 border border-[#FC5BDA]/30 text-white text-xs focus:outline-none focus:border-[#FFD700] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-[#FFFFFF] border border-[#000000]/10 text-[#000000] text-xs focus:outline-none focus:border-[#6B21AB] transition-colors shadow-sm"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-300">Phone Number *</label>
+                  <label className="text-xs font-bold text-[#000000]/80">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -165,13 +160,13 @@ export default function Contact() {
                     placeholder="+91 98765 43210"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-black/80 border border-[#FC5BDA]/30 text-white text-xs focus:outline-none focus:border-[#FFD700] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-[#FFFFFF] border border-[#000000]/10 text-[#000000] text-xs focus:outline-none focus:border-[#6B21AB] transition-colors shadow-sm"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-300">Your Email *</label>
+                <label className="text-xs font-bold text-[#000000]/80">Your Email *</label>
                 <input
                   type="email"
                   name="email"
@@ -179,61 +174,61 @@ export default function Contact() {
                   placeholder="john@example.com"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-black/80 border border-[#FC5BDA]/30 text-white text-xs focus:outline-none focus:border-[#FFD700] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#FFFFFF] border border-[#000000]/10 text-[#000000] text-xs focus:outline-none focus:border-[#6B21AB] transition-colors shadow-sm"
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-300">Service Required *</label>
+                  <label className="text-xs font-bold text-[#000000]/80">Service Required *</label>
                   <select
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-black border border-[#FC5BDA]/30 text-white text-xs focus:outline-none focus:border-[#FFD700] transition-colors cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-[#FFFFFF] border border-[#000000]/10 text-[#000000] text-xs focus:outline-none focus:border-[#6B21AB] transition-colors cursor-pointer shadow-sm"
                   >
-                    <option value="Brand Identity & Design" className="bg-black text-white">Brand Identity & Design</option>
-                    <option value="Digital Marketing & Ads" className="bg-black text-white">Digital Marketing & Performance Ads</option>
-                    <option value="Social Media Management" className="bg-black text-white">Social Media Management</option>
-                    <option value="Web Development" className="bg-black text-white">Web Development</option>
-                    <option value="Video Editing & Motion Reels" className="bg-black text-white">Video Editing & Motion Reels</option>
-                    <option value="SEO & Growth Strategy" className="bg-black text-white">SEO & Growth Strategy</option>
-                    <option value="Luxury Invitations & Event Cards" className="bg-black text-white">Luxury Invitations & Event Cards</option>
-                    <option value="Magazine & Editorial Layouts" className="bg-black text-white">Magazine & Editorial Layouts</option>
+                    <option value="Brand Identity & Design">Brand Identity & Design</option>
+                    <option value="Digital Marketing & Ads">Digital Marketing & Performance Ads</option>
+                    <option value="Social Media Management">Social Media Management</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Video Editing & Motion Reels">Video Editing & Motion Reels</option>
+                    <option value="SEO & Growth Strategy">SEO & Growth Strategy</option>
+                    <option value="Luxury Invitations & Event Cards">Luxury Invitations & Event Cards</option>
+                    <option value="Magazine & Editorial Layouts">Magazine & Editorial Layouts</option>
                   </select>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-300">Estimated Budget Range</label>
+                  <label className="text-xs font-bold text-[#000000]/80">Estimated Budget Range</label>
                   <select
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-black border border-[#FC5BDA]/30 text-white text-xs focus:outline-none focus:border-[#FFD700] transition-colors cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-[#FFFFFF] border border-[#000000]/10 text-[#000000] text-xs focus:outline-none focus:border-[#6B21AB] transition-colors cursor-pointer shadow-sm"
                   >
-                    <option value="₹5,000 - ₹10,000" className="bg-black text-white">₹5,000 - ₹10,000</option>
-                    <option value="₹10,000 - ₹25,000" className="bg-black text-white">₹10,000 - ₹25,000</option>
-                    <option value="₹25,000 - ₹50,000" className="bg-black text-white">₹25,000 - ₹50,000</option>
-                    <option value="₹50,000+" className="bg-black text-white">₹50,000+</option>
+                    <option value="₹5,000 - ₹10,000">₹5,000 - ₹10,000</option>
+                    <option value="₹10,000 - ₹25,000">₹10,000 - ₹25,000</option>
+                    <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000</option>
+                    <option value="₹50,000+">₹50,000+</option>
                   </select>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-300">Message / Project Details</label>
+                <label className="text-xs font-bold text-[#000000]/80">Message / Project Details</label>
                 <textarea
                   name="message"
                   rows="4"
                   placeholder="Tell us about your project or requirements..."
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-black/80 border border-[#FC5BDA]/30 text-white text-xs focus:outline-none focus:border-[#FFD700] transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-[#FFFFFF] border border-[#000000]/10 text-[#000000] text-xs focus:outline-none focus:border-[#6B21AB] transition-colors resize-none shadow-sm"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#FC5BDA] via-[#9333EA] to-[#FC5BDA] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.01] transition-all cursor-pointer shadow-[0_0_20px_rgba(252,91,218,0.5)]"
+                className="w-full py-3.5 px-6 rounded-xl bg-[#6B21AB] hover:bg-[#FC5BDA] text-[#FFFFFF] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer shadow-sm"
               >
                 Send Message via WhatsApp <Send className="w-4 h-4" />
               </button>

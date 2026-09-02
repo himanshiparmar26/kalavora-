@@ -18,42 +18,42 @@ export default function Services() {
   const servicesList = [
     {
       id: "brand-identity",
-      icon: <Layers className="w-8 h-8 text-[#FFD700]" />,
+      icon: <Layers className="w-5 h-5 text-[#FFFFFF]" />,
       title: "Brand Identity & Design Systems",
       desc: "Complete visual identities including logo suites, aura-focused brand guidelines, typography systems, and color palettes that position your business at the top.",
       tags: ["Logo Design", "Brand Guidelines", "Typography", "Visual Identity"]
     },
     {
       id: "digital-marketing",
-      icon: <Zap className="w-8 h-8 text-[#FC5BDA]" />,
+      icon: <Zap className="w-5 h-5 text-[#FFFFFF]" />,
       title: "Digital Marketing & Performance Ads",
       desc: "Data-backed performance marketing on Meta (Instagram/Facebook) and Google Ads tailored to maximize ROAS and generate verified high-ticket leads.",
       tags: ["Meta Ads", "Google PPC", "Lead Generation", "ROAS Optimization"]
     },
     {
       id: "web-development",
-      icon: <Globe className="w-8 h-8 text-[#FFD700]" />,
+      icon: <Globe className="w-5 h-5 text-[#FFFFFF]" />,
       title: "Web Development & Landing Pages",
       desc: "High-speed, conversion-focused websites built with modern frameworks (React, Tailwind CSS) optimized for mobile experience and seamless user journeys.",
       tags: ["React / Next.js", "Landing Pages", "UI/UX", "High Speed"]
     },
     {
       id: "motion-video",
-      icon: <Video className="w-8 h-8 text-[#FC5BDA]" />,
+      icon: <Video className="w-5 h-5 text-[#FFFFFF]" />,
       title: "Video Editing & Motion Reels",
       desc: "Eye-catching short-form content, Instagram Reels, promotional ads, and motion graphics designed to hold attention and boost social reach.",
       tags: ["Instagram Reels", "Ad Creatives", "Motion Graphics", "Video Editing"]
     },
     {
       id: "seo-growth",
-      icon: <Search className="w-8 h-8 text-[#FFD700]" />,
+      icon: <Search className="w-5 h-5 text-[#FFFFFF]" />,
       title: "SEO & Brand Growth Strategy",
       desc: "Search engine optimization strategies that place your agency on the first page of search results, driving long-term organic traffic.",
       tags: ["On-Page SEO", "Technical SEO", "Organic Growth", "Keyword Strategy"]
     },
     {
       id: "luxury-editorial",
-      icon: <BookOpen className="w-8 h-8 text-[#FC5BDA]" />,
+      icon: <BookOpen className="w-5 h-5 text-[#FFFFFF]" />,
       title: "Luxury Editorial & Event Invitations",
       desc: "Bespoke digital invitation cards, magazine layouts, corporate catalogs, and high-end print-ready marketing materials.",
       tags: ["Luxury Invitations", "Editorial Layouts", "Print Design", "Corporate Cards"]
@@ -62,31 +62,31 @@ export default function Services() {
 
   const handleInquire = (serviceTitle) => {
     const text = `Hi Kalavora Team! I am interested in knowing more about your service: *${serviceTitle}*.`;
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
   };
 
   const ServiceCard = ({ service }) => (
-    <div 
-      className="p-8 rounded-3xl bg-[#6B21AB]/10 border border-[#FC5BDA]/30 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD700] group shadow-xl backdrop-blur-md relative"
-    >
+    <div className="p-6 md:p-7 rounded-2xl bg-[#000000]/[0.02] border border-[#000000]/10 hover:border-[#6B21AB]/40 hover:shadow-lg hover:shadow-[#000000]/5 transition-all duration-300 flex flex-col justify-between group">
       <div>
-        <div className="p-4 rounded-2xl bg-[#000000]/80 border border-[#FC5BDA]/40 w-fit mb-6 shadow-[0_0_20px_rgba(252,91,218,0.3)] group-hover:scale-110 group-hover:border-[#FFD700] transition-all">
+        <div className="p-3.5 rounded-xl bg-[#6B21AB] text-[#FFFFFF] w-fit mb-5 shadow-sm">
           {service.icon}
         </div>
-        <h3 className="text-2xl font-bold text-[#FFFFFF] mb-3 font-serif leading-snug">
+        
+        <h3 className="text-xl font-bold text-[#000000] mb-2 leading-snug group-hover:text-[#6B21AB] transition-colors">
           {service.title}
         </h3>
-        <p className="text-gray-300 text-xs md:text-sm leading-relaxed mb-6 font-light">
+        
+        <p className="text-[#000000]/70 text-xs md:text-sm leading-relaxed mb-6 font-medium">
           {service.desc}
         </p>
       </div>
 
-      <div className="space-y-6 pt-4 border-t border-white/10">
+      <div className="space-y-5 pt-4 border-t border-[#000000]/10">
         <div className="flex flex-wrap gap-2">
           {service.tags.map((tag, idx) => (
             <span 
               key={idx}
-              className="px-2.5 py-1 rounded-md bg-black/60 border border-[#FC5BDA]/20 text-[10px] text-gray-300 font-medium"
+              className="px-2.5 py-1 rounded-md bg-[#6B21AB]/10 text-[10px] text-[#6B21AB] font-bold"
             >
               #{tag}
             </span>
@@ -97,50 +97,45 @@ export default function Services() {
           type="button"
           onClick={() => handleInquire(service.title)}
           aria-label={`Inquire via WhatsApp about ${service.title}`}
-          className="w-full py-3 rounded-xl bg-black border border-[#FC5BDA]/50 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 group-hover:bg-[#FC5BDA] group-hover:border-[#FC5BDA] transition-all shadow-[0_0_15px_rgba(252,91,218,0.2)] cursor-pointer"
+          className="w-full py-2.5 px-4 border border-[#6B21AB]/30 bg-[#FFFFFF] text-[#6B21AB] font-bold text-xs uppercase tracking-wider flex items-center justify-between hover:bg-[#6B21AB] hover:text-[#FFFFFF] transition-all duration-300 cursor-pointer rounded-xl group/btn shadow-sm"
         >
-          Inquire via WhatsApp <ArrowUpRight className="w-4 h-4" />
+          <span>Inquire via WhatsApp</span>
+          <ArrowUpRight className="w-4 h-4 text-[#FC5BDA] group-hover/btn:text-[#FFFFFF] transition-colors" />
         </button>
       </div>
     </div>
   );
 
   return (
-    <div className="bg-[#000000] text-[#FFFFFF] min-h-screen pt-28 pb-20 relative overflow-hidden font-sans">
+    <div className="bg-[#FFFFFF] text-[#000000] min-h-screen pt-12 pb-24 font-sans selection:bg-[#6B21AB] selection:text-white">
       
-      {/* Background Ambient Glows */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#6B21AB]/20 rounded-full blur-[150px] pointer-events-none"></div>
-      <div className="absolute bottom-20 right-10 w-[350px] h-[350px] bg-[#FC5BDA]/15 rounded-full blur-[140px] pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-16">
+      <div className="max-w-7xl mx-auto px-6 space-y-16">
         
-        {/* Header Section with Mascot #1 */}
-        <div className="grid md:grid-cols-12 gap-8 items-center text-center md:text-left max-w-5xl mx-auto">
+        {/* Header Section */}
+        <div className="grid md:grid-cols-12 gap-8 items-center text-center md:text-left max-w-5xl mx-auto pt-4">
           <div className="md:col-span-8 space-y-4">
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#FFD700]/60 bg-[#FFD700]/10 text-[#FFD700] text-xs font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(255,215,0,0.25)]">
-              <Sparkles className="w-4 h-4" /> OUR CAPABILITIES
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#000000]/10 bg-[#000000]/[0.03] text-[#000000] text-xs font-bold tracking-widest uppercase">
+              <span className="w-2 h-2 rounded-full bg-[#FC5BDA] animate-pulse"></span>
+              <Sparkles className="w-3.5 h-3.5 text-[#6B21AB]" /> Our Capabilities
             </div>
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#FFFFFF] leading-tight">
+            
+            <h1 className="text-4xl md:text-6xl font-extrabold text-[#000000] leading-tight tracking-tight">
               Services Crafted For <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#FC5BDA] to-[#FFFFFF] italic">
-                Digital Excellence
-              </span>
+              <span className="text-[#6B21AB] italic font-normal">Digital Excellence</span>
             </h1>
-            <p className="text-gray-300 text-sm md:text-base font-light leading-relaxed">
-              From luxury visual aesthetics to performance marketing systems, we help modern businesses build an unmistakable aura.
+            
+            <p className="text-[#000000]/70 text-sm md:text-base font-medium leading-relaxed max-w-xl">
+              From high-impact visual design to performance marketing systems, we help modern businesses build an unmistakable market presence.
             </p>
           </div>
 
-          {/* Top Hero Mascot #1 */}
+          {/* Top Hero Mascot */}
           <div className="md:col-span-4 flex justify-center items-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#6B21AB] to-[#FC5BDA] rounded-full blur-2xl opacity-40"></div>
-              <img 
-                src="/mascot-idea.png" 
-                alt="Kalavora Creative Mascot" 
-                className="w-44 md:w-56 h-auto object-contain drop-shadow-[0_0_25px_rgba(252,91,218,0.6)] relative z-10 hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+            <img 
+              src="/mascot-idea.png" 
+              alt="Kalavora Creative Mascot" 
+              className="w-52 md:w-60 h-auto object-contain hover:scale-105 transition-transform duration-300"
+            />
           </div>
         </div>
 
@@ -151,26 +146,26 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Mascot Spotlight Banner #2 */}
-        <div className="rounded-3xl border border-[#FFD700]/50 bg-gradient-to-r from-[#6B21AB]/30 via-black to-[#FC5BDA]/20 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_0_40px_rgba(255,215,0,0.2)]">
+        {/* Middle Spotlight Banner (Light Black Container Box) */}
+        <div className="p-8 md:p-10 rounded-3xl bg-[#000000]/[0.015] border border-[#000000]/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-3 text-center md:text-left max-w-xl">
-            <span className="text-[#FFD700] text-xs font-bold uppercase tracking-widest px-3 py-1 bg-[#FFD700]/10 border border-[#FFD700]/40 rounded-full">
+            <span className="text-[#6B21AB] text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 bg-[#6B21AB]/10 rounded-full inline-block">
               Full Stack Digital Execution
             </span>
-            <h3 className="text-2xl md:text-3xl font-extrabold font-serif text-white">
-              Scalable Tech Meets Aesthetic Mastery
+            <h3 className="text-2xl md:text-3xl font-extrabold text-[#000000] tracking-tight">
+              Scalable Tech Meets <br />
+              <span className="text-[#6B21AB] italic font-normal">Aesthetic Mastery</span>
             </h3>
-            <p className="text-gray-300 text-xs md:text-sm font-light leading-relaxed">
+            <p className="text-[#000000]/70 text-xs md:text-sm font-medium leading-relaxed">
               Every line of code and pixel we design is optimized to convert traffic into long-term brand equity.
             </p>
           </div>
 
-          <div className="shrink-0 relative">
-            <div className="absolute inset-0 bg-[#FFD700]/20 rounded-full blur-xl"></div>
+          <div className="shrink-0">
             <img 
               src="/mascot-dev.png" 
               alt="Web Tech Mascot" 
-              className="w-36 md:w-44 h-auto object-contain drop-shadow-[0_0_20px_rgba(255,215,0,0.5)] relative z-10 hover:scale-105 transition-transform"
+              className="w-36 md:w-44 h-auto object-contain hover:scale-105 transition-transform duration-300"
             />
           </div>
         </div>
@@ -182,28 +177,29 @@ export default function Services() {
           ))}
         </div>
 
-        {/* CTA Bottom Banner with Mascot #3 */}
-        <div className="rounded-3xl bg-gradient-to-r from-[#6B21AB]/40 via-black to-[#FC5BDA]/20 border border-[#FC5BDA]/40 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 backdrop-blur-md shadow-[0_0_50px_rgba(107,33,171,0.3)]">
-          <div className="space-y-4 text-center md:text-left">
-            <h2 className="text-2xl md:text-4xl font-extrabold font-serif text-white">
-              Need a Custom Package For Your Brand?
+        {/* Bottom Callout Section */}
+        <div className="pt-8">
+          <div className="text-center space-y-6 text-[#000000]">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#000000]">
+              Need a Custom Package <br />
+              <span className="text-[#6B21AB] italic font-normal">
+                For Your Brand?
+              </span>
             </h2>
-            <p className="text-gray-300 text-xs md:text-sm max-w-lg font-light">
+
+            <p className="text-[#000000]/70 text-sm max-w-lg mx-auto font-medium leading-relaxed">
               We offer custom retainers and strategy packages tailored to your project goals.
             </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#FFD700] via-[#FC5BDA] to-[#FFD700] text-black font-bold text-xs uppercase tracking-wider hover:scale-105 transition-all shadow-[0_0_25px_rgba(255,215,0,0.4)]"
-            >
-              Get Custom Proposal <MailCheck className="w-4 h-4" />
-            </Link>
-          </div>
 
-          <img 
-            src="/mascot-contact.png" 
-            alt="Support Penguin Mascot" 
-            className="w-36 md:w-44 h-auto object-contain drop-shadow-[0_0_20px_rgba(252,91,218,0.5)] shrink-0"
-          />
+            <div className="flex justify-center pt-2">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#6B21AB] text-[#FFFFFF] font-extrabold text-xs uppercase tracking-wider hover:bg-[#581C87] transition-all duration-300 shadow-md"
+              >
+                Get Custom Proposal <MailCheck className="w-4 h-4 text-[#FFFFFF]" />
+              </Link>
+            </div>
+          </div>
         </div>
 
       </div>

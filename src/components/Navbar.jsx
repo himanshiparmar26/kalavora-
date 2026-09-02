@@ -1,108 +1,102 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { 
-  Home, 
-  User, 
-  Briefcase, 
-  FolderKanban, 
-  BookOpen, 
-  Mail,
-  Calculator
-} from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 export default function Navbar() {
   const location = useLocation();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navItems = [
-    { name: 'HOME', path: '/', icon: <Home className="w-4 h-4 text-[#FFD700]" /> },
-    { name: 'ABOUT US', path: '/about', icon: <User className="w-4 h-4 text-[#FC5BDA]" /> },
-    { name: 'SERVICES', path: '/services', icon: <Briefcase className="w-4 h-4 text-[#FFD700]" /> },
-    { name: 'ESTIMATOR', path: '/calculator', icon: <Calculator className="w-4 h-4 text-[#FC5BDA]" /> },
-    { name: 'OUR WORK', path: '/workplace', icon: <FolderKanban className="w-4 h-4 text-[#FFD700]" /> },
-    { name: 'BLOG', path: '/blog', icon: <BookOpen className="w-4 h-4 text-[#FC5BDA]" /> },
-    { name: 'CONTACT US', path: '/contact', icon: <Mail className="w-4 h-4 text-[#FFD700]" /> },
+  const navLinks = [
+    { name: 'HOME', path: '/' },
+    { name: 'ABOUT US', path: '/about' },
+    { name: 'SERVICES', path: '/services' },
+    { name: 'OUR WORK', path: '/work' },
+    { name: 'BLOG', path: '/blog' },
+    { name: 'CONTACT US', path: '/contact' }
   ];
 
   return (
-    <nav 
-      className={`w-full bg-[#000000]/95 backdrop-blur-md border-b-2 border-[#FFD700] sticky top-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled ? 'pt-7 pb-3 shadow-[0_10px_25px_rgba(0,0,0,0.9)]' : 'pt-9 pb-4 shadow-[0_5px_20px_rgba(0,0,0,0.7)]'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
+    <nav className="bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#6B21AB]/20 sticky top-0 z-50 px-6 py-4 transition-all duration-300 shadow-sm">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
         
-        {/* Brand Logo Header Left Side */}
-        <Link to="/" className="flex items-center gap-3 group shrink-0">
-          <img 
-            src="/logo.png" 
-            alt="Kalavora Logo" 
-            className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_12px_rgba(252,91,218,0.5)] group-hover:scale-105 transition-transform duration-300" 
-          />
+        {/* Brand Logo - Subtle Hover Accent */}
+        <Link to="/" className="relative flex items-center gap-2 group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#6B21AB]/20 to-[#FC5BDA]/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          <img src="/logo.png" alt="Kalavora Logo" className="h-8 relative z-10 w-auto object-contain" />
         </Link>
 
-        {/* Navigation Items Right Side */}
-        <div className="flex items-center justify-center gap-6 md:gap-8 flex-wrap">
-          {navItems.map((item, index) => {
-            const isHovered = hoveredIndex === index;
-            const isActive = location.pathname === item.path;
-
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
             return (
-              <div
-                key={index}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="relative flex flex-col items-center group cursor-pointer pt-3"
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`relative text-xs font-semibold tracking-wider transition-colors duration-200 py-1 ${
+                  isActive ? 'text-[#000000]' : 'text-[#000000]/70 hover:text-[#000000]'
+                }`}
               >
-                {/* Floating Icon (Fixed Top Cutting Issue) */}
-                <div 
-                  className={`absolute -top-7 transition-all duration-300 ease-out transform ${
-                    isHovered 
-                      ? 'opacity-100 -translate-y-0.5 scale-110 z-10' 
-                      : 'opacity-0 translate-y-2 scale-75 pointer-events-none'
-                  }`}
-                >
-                  <div className="flex items-center justify-center p-1.5 rounded-full bg-[#000000] border border-[#FC5BDA] shadow-[0_0_12px_rgba(252,91,218,0.8)]">
-                    {item.icon}
-                  </div>
-                </div>
-
-                {/* Nav Text */}
-                <Link
-                  to={item.path}
-                  className={`font-extrabold tracking-wider transition-all duration-300 ${
-                    isScrolled ? 'text-xs' : 'text-xs md:text-sm'
-                  } ${
-                    isHovered || isActive
-                      ? 'text-[#FFD700] scale-105'
-                      : 'text-[#FFFFFF] group-hover:text-[#FC5BDA]'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-
-                {/* Bottom Active Glow Line */}
-                <div 
-                  className={`h-[3px] rounded-full bg-gradient-to-r from-[#FC5BDA] to-[#FFD700] transition-all duration-300 ${
-                    isHovered || isActive ? 'w-full shadow-[0_0_10px_rgba(255,215,0,0.9)] mt-1.5' : 'w-0 mt-1.5'
-                  }`}
-                />
-              </div>
+                {link.name}
+                {isActive && (
+                  /* Accent Line under Active Link */
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#6B21AB] via-[#6B21AB] to-[#FC5BDA] rounded-full"></span>
+                )}
+              </Link>
             );
           })}
         </div>
 
+        {/* Desktop Action Button - Indigo Bloom with Micro Cotton Bloom Arrow */}
+        <div className="hidden md:block">
+          <Link
+            to="/contact"
+            className="group inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#6B21AB] border border-[#6B21AB] text-[#FFFFFF] text-xs font-medium tracking-wide hover:bg-[#581C87] hover:border-[#FC5BDA]/60 transition-all duration-300 shadow-sm"
+          >
+            GET IN TOUCH 
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#FC5BDA] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger Toggle */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden text-[#000000] hover:text-[#6B21AB] focus:outline-none p-2 transition-colors"
+          aria-label="Toggle Navigation Menu"
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6 text-[#6B21AB]" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-[#FFFFFF] border-b border-[#6B21AB]/20 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-300 shadow-lg">
+          <div className="flex flex-col space-y-4">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-xs font-semibold tracking-wider transition-colors ${
+                    isActive ? 'text-[#6B21AB]' : 'text-[#000000]/80 hover:text-[#000000]'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+            <Link
+              to="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#6B21AB] text-[#FFFFFF] text-xs font-medium tracking-wide hover:bg-[#581C87] transition-all mt-2"
+            >
+              GET IN TOUCH <ArrowUpRight className="w-4 h-4 text-[#FC5BDA]" />
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
