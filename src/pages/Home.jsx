@@ -34,7 +34,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[#FFFFFF] text-[#000000] min-h-screen pt-12 pb-24 relative font-sans selection:bg-[#6B21AB] selection:text-white">
+    <div className="bg-white text-slate-900 dark:bg-[#090D16] dark:text-slate-100 min-h-screen pt-12 pb-24 relative font-sans selection:bg-[#6B21AB] selection:text-white transition-colors duration-300">
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-20">
         
@@ -44,42 +44,42 @@ export default function Home() {
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
             
-            {/* Badge - Clean Border with 2% Cotton Bloom Accent */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6B21AB]/30 bg-[#FFFFFF] text-[#000000] text-xs font-bold tracking-widest uppercase shadow-sm">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6B21AB]/30 bg-gray-50 dark:bg-[#131927] text-slate-900 dark:text-white text-xs font-bold tracking-widest uppercase shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#FC5BDA] animate-pulse"></span>
-              <Sparkles className="w-3.5 h-3.5 text-[#6B21AB]" /> Kalavora Creative Studio
+              <Sparkles className="w-3.5 h-3.5 text-[#6B21AB] dark:text-[#FC5BDA]" /> Kalavora Creative Studio
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-[#000000]">
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white">
               Kalavora <br />
-              <span className="text-3xl md:text-5xl font-normal text-[#000000]/70 italic">
-                A Digital Aura of <span className="text-[#6B21AB] not-italic font-extrabold">Creativity</span>
+              <span className="text-3xl md:text-5xl font-normal text-slate-700 dark:text-slate-300 italic">
+                A Digital Aura of <span className="text-[#6B21AB] dark:text-[#FC5BDA] not-italic font-extrabold">Creativity</span>
               </span>
             </h1>
             
-            <p className="text-[#000000]/70 text-base md:text-lg max-w-xl leading-relaxed font-medium">
+            <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg max-w-xl leading-relaxed font-medium">
               We fuse high-end design identity, glowing visual systems, and modern digital marketing strategy to amplify your brand's presence.
             </p>
             
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
               <Link
                 to="/services"
-                className="group px-7 py-3.5 rounded-full bg-[#6B21AB] text-[#FFFFFF] font-semibold text-xs uppercase tracking-wider hover:bg-[#581C87] border border-transparent transition-all duration-300 flex items-center gap-2 shadow-md"
+                className="group px-7 py-3.5 rounded-full bg-[#6B21AB] text-white font-semibold text-xs uppercase tracking-wider hover:bg-[#581C87] border border-transparent transition-all duration-300 flex items-center gap-2 shadow-md"
               >
                 Our Services 
-                <ArrowUpRight className="w-4 h-4 text-[#FFFFFF] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               
               <button
                 onClick={handleWhatsAppRedirect}
-                className="px-7 py-3.5 rounded-full border border-[#6B21AB]/40 bg-[#FFFFFF] text-[#000000] font-bold text-xs uppercase tracking-wider hover:bg-[#6B21AB]/10 transition-all duration-300 shadow-sm flex items-center gap-2 cursor-pointer"
+                className="px-7 py-3.5 rounded-full border border-[#6B21AB]/40 bg-white dark:bg-[#131927] text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider hover:bg-[#6B21AB]/10 transition-all duration-300 shadow-sm flex items-center gap-2 cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4 text-[#6B21AB]" /> Quick WhatsApp
+                <MessageCircle className="w-4 h-4 text-[#6B21AB] dark:text-[#FC5BDA]" /> Quick WhatsApp
               </button>
             </div>
           </div>
 
-          {/* Right Column: Direct Mascot (No Box & No Gradients) */}
+          {/* Right Column: Direct Mascot */}
           <div className="lg:col-span-5 flex justify-center items-center">
             <div className="w-72 h-72 md:w-88 md:h-88 flex items-center justify-center p-2">
               <img 
@@ -98,45 +98,44 @@ export default function Home() {
         <section className="grid md:grid-cols-3 gap-6">
           {[
             { 
-              icon: <Layers className="text-[#FFFFFF] w-5 h-5" />, 
+              icon: <Layers className="text-white w-5 h-5" />, 
               title: "Brand Identity", 
               desc: "Aura-focused design guidelines, custom color systems, and modern typography." 
             },
             { 
-              icon: <Zap className="text-[#FFFFFF] w-5 h-5" />, 
+              icon: <Zap className="text-white w-5 h-5" />, 
               title: "Digital Marketing", 
               desc: "High-ROI digital campaigns tailored to scale modern agency presence." 
             },
             { 
-              icon: <Star className="text-[#FFFFFF] w-5 h-5" />, 
+              icon: <Star className="text-white w-5 h-5" />, 
               title: "Creative Production", 
               desc: "Premium visual assets, social media graphics, and full web builds." 
             },
           ].map((item, idx) => (
             <div 
               key={idx} 
-              className="p-8 rounded-2xl bg-[#FFFFFF] border border-[#6B21AB]/20 transition-all duration-300 hover:border-[#6B21AB] hover:shadow-lg hover:-translate-y-1 group relative shadow-sm"
+              className="p-8 rounded-2xl bg-white dark:bg-[#131927] border border-slate-200 dark:border-[#6B21AB]/40 transition-all duration-300 hover:border-[#6B21AB] hover:shadow-lg hover:-translate-y-1 group relative shadow-sm"
             >
-              {/* 2% Accent Dot */}
               <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-[#FC5BDA]/80"></div>
 
-              <div className="p-3 rounded-xl bg-[#6B21AB] text-[#FFFFFF] w-fit mb-6 transition-all duration-300 shadow-sm group-hover:bg-[#581C87]">
+              <div className="p-3 rounded-xl bg-[#6B21AB] text-white w-fit mb-6 transition-all duration-300 shadow-sm group-hover:bg-[#581C87]">
                 {item.icon}
               </div>
-              <h3 className="text-lg font-bold text-[#000000] mb-2 tracking-wide">{item.title}</h3>
-              <p className="text-[#000000]/70 text-xs leading-relaxed font-medium">{item.desc}</p>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 tracking-wide">{item.title}</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed font-medium">{item.desc}</p>
             </div>
           ))}
         </section>
 
-        {/* 3-Card Callout Grid - Exactly Matched & Adjusted */}
+        {/* 3-Card Callout Grid */}
         <section className="grid md:grid-cols-3 gap-6">
           
           {/* Card 1 */}
-          <div className="p-8 rounded-2xl bg-[#FFFFFF] border border-[#6B21AB]/20 flex flex-col justify-between transition-all duration-300 hover:border-[#6B21AB] hover:shadow-lg hover:-translate-y-1 group relative shadow-sm h-full min-h-[260px]">
+          <div className="p-8 rounded-2xl bg-white dark:bg-[#131927] border border-slate-200 dark:border-[#6B21AB]/40 flex flex-col justify-between transition-all duration-300 hover:border-[#6B21AB] hover:shadow-lg hover:-translate-y-1 group relative shadow-sm h-full min-h-[260px]">
             <div className="space-y-2">
-              <span className="text-[#6B21AB] text-[10px] uppercase tracking-widest font-extrabold">Request a proposal</span>
-              <h3 className="text-base font-bold text-[#000000] leading-snug">
+              <span className="text-[#6B21AB] dark:text-[#FC5BDA] text-[10px] uppercase tracking-widest font-extrabold">Request a proposal</span>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white leading-snug">
                 Want to turn your brand into a high-ticket client magnet?
               </h3>
             </div>
@@ -145,9 +144,9 @@ export default function Home() {
               <Link
                 to="/contact"
                 aria-label="Contact Us"
-                className="p-3 rounded-full bg-[#6B21AB] text-[#FFFFFF] hover:bg-[#581C87] transition-all duration-300 shadow-sm"
+                className="p-3 rounded-full bg-[#6B21AB] text-white hover:bg-[#581C87] transition-all duration-300 shadow-sm"
               >
-                <ArrowUpRight className="w-4 h-4 text-[#FFFFFF]" />
+                <ArrowUpRight className="w-4 h-4 text-white" />
               </Link>
 
               <img 
@@ -159,10 +158,10 @@ export default function Home() {
           </div>
 
           {/* Card 2 */}
-          <div className="p-8 rounded-2xl bg-[#FFFFFF] border border-[#6B21AB]/20 flex flex-col justify-between transition-all duration-300 hover:border-[#6B21AB] hover:shadow-lg hover:-translate-y-1 group relative shadow-sm h-full min-h-[260px]">
+          <div className="p-8 rounded-2xl bg-white dark:bg-[#131927] border border-slate-200 dark:border-[#6B21AB]/40 flex flex-col justify-between transition-all duration-300 hover:border-[#6B21AB] hover:shadow-lg hover:-translate-y-1 group relative shadow-sm h-full min-h-[260px]">
             <div className="space-y-2">
-              <span className="text-[#6B21AB] text-[10px] uppercase tracking-widest font-extrabold">Growth Team</span>
-              <h3 className="text-base font-bold text-[#000000] leading-snug">
+              <span className="text-[#6B21AB] dark:text-[#FC5BDA] text-[10px] uppercase tracking-widest font-extrabold">Growth Team</span>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white leading-snug">
                 Ready to scale your ads & ROI with modern strategy?
               </h3>
             </div>
@@ -171,9 +170,9 @@ export default function Home() {
               <button
                 onClick={handleWhatsAppRedirect}
                 aria-label="WhatsApp Growth Team"
-                className="p-3 rounded-full bg-[#6B21AB] text-[#FFFFFF] hover:bg-[#581C87] transition-all duration-300 cursor-pointer shadow-sm"
+                className="p-3 rounded-full bg-[#6B21AB] text-white hover:bg-[#581C87] transition-all duration-300 cursor-pointer shadow-sm"
               >
-                <Briefcase className="w-4 h-4 text-[#FFFFFF]" />
+                <Briefcase className="w-4 h-4 text-white" />
               </button>
 
               <img 
@@ -185,21 +184,21 @@ export default function Home() {
           </div>
 
           {/* Card 3 */}
-          <div className="p-8 rounded-2xl bg-[#FFFFFF] border border-[#6B21AB]/20 flex flex-col justify-between transition-all duration-300 hover:border-[#6B21AB] hover:shadow-lg hover:-translate-y-1 group relative shadow-sm h-full min-h-[260px]">
+          <div className="p-8 rounded-2xl bg-white dark:bg-[#131927] border border-slate-200 dark:border-[#6B21AB]/40 flex flex-col justify-between transition-all duration-300 hover:border-[#6B21AB] hover:shadow-lg hover:-translate-y-1 group relative shadow-sm h-full min-h-[260px]">
             <div className="space-y-2">
-              <span className="text-[#6B21AB] text-[10px] uppercase tracking-widest font-extrabold">Portfolio</span>
-              <h3 className="text-base font-bold text-[#000000] leading-snug">
+              <span className="text-[#6B21AB] dark:text-[#FC5BDA] text-[10px] uppercase tracking-widest font-extrabold">Portfolio</span>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white leading-snug">
                 Want to see how we build iconic brand identities?
               </h3>
             </div>
 
             <div className="flex items-end justify-between pt-6">
               <Link
-                to="/work"
+                to="/workplace"
                 aria-label="Our Work"
-                className="p-3 rounded-full bg-[#6B21AB] text-[#FFFFFF] hover:bg-[#581C87] transition-all duration-300 shadow-sm"
+                className="p-3 rounded-full bg-[#6B21AB] text-white hover:bg-[#581C87] transition-all duration-300 shadow-sm"
               >
-                <ArrowRight className="w-4 h-4 text-[#FFFFFF]" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </Link>
 
               <img 
@@ -214,32 +213,32 @@ export default function Home() {
 
         {/* Bottom CTA Banner */}
         <section>
-          <div className="rounded-3xl bg-[#FFFFFF] p-10 md:p-14 text-center space-y-6 relative border border-[#6B21AB]/30 shadow-lg text-[#000000]">
+          <div className="rounded-3xl bg-white dark:bg-[#131927] p-10 md:p-14 text-center space-y-6 relative border border-slate-200 dark:border-[#6B21AB]/40 shadow-lg text-slate-900 dark:text-white">
             
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#000000]">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               Ready to Transform Your <br />
-              <span className="text-[#6B21AB] italic font-normal">
+              <span className="text-[#6B21AB] dark:text-[#FC5BDA] italic font-normal">
                 Brand Identity?
               </span>
             </h2>
 
-            <p className="text-[#000000]/70 text-sm max-w-xl mx-auto font-normal leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-400 text-sm max-w-xl mx-auto font-normal leading-relaxed">
               Let's craft custom designs and growth strategies for your business today.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <button
                 onClick={handleWhatsAppRedirect}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#6B21AB] text-[#FFFFFF] font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#581C87] transition-all duration-300 cursor-pointer shadow-md hover:scale-105"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#6B21AB] text-white font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#581C87] transition-all duration-300 cursor-pointer shadow-md hover:scale-105"
               >
-                <MessageCircle className="w-4 h-4 text-[#FFFFFF]" /> Start WhatsApp Chat
+                <MessageCircle className="w-4 h-4 text-white" /> Start WhatsApp Chat
               </button>
 
               <Link
                 to="/contact"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#FFFFFF] border border-[#6B21AB] text-[#000000] font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#6B21AB]/10 transition-all duration-300"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-slate-50 dark:bg-[#090D16] border border-[#6B21AB] text-slate-900 dark:text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#6B21AB]/10 transition-all duration-300"
               >
-                Send Detailed Proposal <ArrowRight className="w-4 h-4 text-[#000000]" />
+                Send Detailed Proposal <ArrowRight className="w-4 h-4 text-slate-900 dark:text-white" />
               </Link>
             </div>
 

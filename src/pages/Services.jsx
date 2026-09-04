@@ -66,27 +66,27 @@ export default function Services() {
   };
 
   const ServiceCard = ({ service }) => (
-    <div className="p-6 md:p-7 rounded-2xl bg-[#000000]/[0.02] border border-[#000000]/10 hover:border-[#6B21AB]/40 hover:shadow-lg hover:shadow-[#000000]/5 transition-all duration-300 flex flex-col justify-between group">
+    <div className="p-6 md:p-7 rounded-2xl bg-[#000000]/[0.02] dark:bg-[#131927] border border-[#000000]/10 dark:border-[#6B21AB]/30 hover:border-[#6B21AB]/40 dark:hover:border-[#FC5BDA]/60 hover:shadow-lg dark:hover:shadow-[#6B21AB]/10 transition-all duration-300 flex flex-col justify-between group">
       <div>
         <div className="p-3.5 rounded-xl bg-[#6B21AB] text-[#FFFFFF] w-fit mb-5 shadow-sm">
           {service.icon}
         </div>
         
-        <h3 className="text-xl font-bold text-[#000000] mb-2 leading-snug group-hover:text-[#6B21AB] transition-colors">
+        <h3 className="text-xl font-bold text-[#000000] dark:text-[#FFFFFF] mb-2 leading-snug group-hover:text-[#6B21AB] dark:group-hover:text-[#FC5BDA] transition-colors">
           {service.title}
         </h3>
         
-        <p className="text-[#000000]/70 text-xs md:text-sm leading-relaxed mb-6 font-medium">
+        <p className="text-[#000000]/70 dark:text-[#FFFFFF]/70 text-xs md:text-sm leading-relaxed mb-6 font-medium">
           {service.desc}
         </p>
       </div>
 
-      <div className="space-y-5 pt-4 border-t border-[#000000]/10">
+      <div className="space-y-5 pt-4 border-t border-[#000000]/10 dark:border-[#6B21AB]/20">
         <div className="flex flex-wrap gap-2">
           {service.tags.map((tag, idx) => (
             <span 
               key={idx}
-              className="px-2.5 py-1 rounded-md bg-[#6B21AB]/10 text-[10px] text-[#6B21AB] font-bold"
+              className="px-2.5 py-1 rounded-md bg-[#6B21AB]/10 dark:bg-[#6B21AB]/25 text-[10px] text-[#6B21AB] dark:text-[#FC5BDA] font-bold"
             >
               #{tag}
             </span>
@@ -97,7 +97,7 @@ export default function Services() {
           type="button"
           onClick={() => handleInquire(service.title)}
           aria-label={`Inquire via WhatsApp about ${service.title}`}
-          className="w-full py-2.5 px-4 border border-[#6B21AB]/30 bg-[#FFFFFF] text-[#6B21AB] font-bold text-xs uppercase tracking-wider flex items-center justify-between hover:bg-[#6B21AB] hover:text-[#FFFFFF] transition-all duration-300 cursor-pointer rounded-xl group/btn shadow-sm"
+          className="w-full py-2.5 px-4 border border-[#6B21AB]/30 dark:border-[#6B21AB]/50 bg-[#FFFFFF] dark:bg-[#090D16] text-[#6B21AB] dark:text-[#FC5BDA] font-bold text-xs uppercase tracking-wider flex items-center justify-between hover:bg-[#6B21AB] dark:hover:bg-[#6B21AB] hover:text-[#FFFFFF] dark:hover:text-[#FFFFFF] transition-all duration-300 cursor-pointer rounded-xl group/btn shadow-sm"
         >
           <span>Inquire via WhatsApp</span>
           <ArrowUpRight className="w-4 h-4 text-[#FC5BDA] group-hover/btn:text-[#FFFFFF] transition-colors" />
@@ -107,24 +107,24 @@ export default function Services() {
   );
 
   return (
-    <div className="bg-[#FFFFFF] text-[#000000] min-h-screen pt-12 pb-24 font-sans selection:bg-[#6B21AB] selection:text-white">
+    <div className="bg-[#FFFFFF] dark:bg-[#090D16] text-[#000000] dark:text-[#FFFFFF] min-h-screen pt-12 pb-24 font-sans selection:bg-[#6B21AB] selection:text-white transition-colors duration-300">
       
       <div className="max-w-7xl mx-auto px-6 space-y-16">
         
         {/* Header Section */}
         <div className="grid md:grid-cols-12 gap-8 items-center text-center md:text-left max-w-5xl mx-auto pt-4">
           <div className="md:col-span-8 space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#000000]/10 bg-[#000000]/[0.03] text-[#000000] text-xs font-bold tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#000000]/10 dark:border-[#6B21AB]/40 bg-[#000000]/[0.03] dark:bg-[#131927] text-[#000000] dark:text-[#FFFFFF] text-xs font-bold tracking-widest uppercase">
               <span className="w-2 h-2 rounded-full bg-[#FC5BDA] animate-pulse"></span>
-              <Sparkles className="w-3.5 h-3.5 text-[#6B21AB]" /> Our Capabilities
+              <Sparkles className="w-3.5 h-3.5 text-[#6B21AB] dark:text-[#FC5BDA]" /> Our Capabilities
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-extrabold text-[#000000] leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-[#000000] dark:text-[#FFFFFF] leading-tight tracking-tight">
               Services Crafted For <br />
-              <span className="text-[#6B21AB] italic font-normal">Digital Excellence</span>
+              <span className="text-[#6B21AB] dark:text-[#FC5BDA] italic font-normal">Digital Excellence</span>
             </h1>
             
-            <p className="text-[#000000]/70 text-sm md:text-base font-medium leading-relaxed max-w-xl">
+            <p className="text-[#000000]/70 dark:text-[#FFFFFF]/70 text-sm md:text-base font-medium leading-relaxed max-w-xl">
               From high-impact visual design to performance marketing systems, we help modern businesses build an unmistakable market presence.
             </p>
           </div>
@@ -146,17 +146,17 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Middle Spotlight Banner (Light Black Container Box) */}
-        <div className="p-8 md:p-10 rounded-3xl bg-[#000000]/[0.015] border border-[#000000]/10 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Middle Spotlight Banner */}
+        <div className="p-8 md:p-10 rounded-3xl bg-[#000000]/[0.015] dark:bg-[#131927] border border-[#000000]/10 dark:border-[#6B21AB]/30 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-3 text-center md:text-left max-w-xl">
-            <span className="text-[#6B21AB] text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 bg-[#6B21AB]/10 rounded-full inline-block">
+            <span className="text-[#6B21AB] dark:text-[#FC5BDA] text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 bg-[#6B21AB]/10 dark:bg-[#6B21AB]/30 rounded-full inline-block">
               Full Stack Digital Execution
             </span>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-[#000000] tracking-tight">
+            <h3 className="text-2xl md:text-3xl font-extrabold text-[#000000] dark:text-[#FFFFFF] tracking-tight">
               Scalable Tech Meets <br />
-              <span className="text-[#6B21AB] italic font-normal">Aesthetic Mastery</span>
+              <span className="text-[#6B21AB] dark:text-[#FC5BDA] italic font-normal">Aesthetic Mastery</span>
             </h3>
-            <p className="text-[#000000]/70 text-xs md:text-sm font-medium leading-relaxed">
+            <p className="text-[#000000]/70 dark:text-[#FFFFFF]/70 text-xs md:text-sm font-medium leading-relaxed">
               Every line of code and pixel we design is optimized to convert traffic into long-term brand equity.
             </p>
           </div>
@@ -179,15 +179,15 @@ export default function Services() {
 
         {/* Bottom Callout Section */}
         <div className="pt-8">
-          <div className="text-center space-y-6 text-[#000000]">
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#000000]">
+          <div className="text-center space-y-6 text-[#000000] dark:text-[#FFFFFF]">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#000000] dark:text-[#FFFFFF]">
               Need a Custom Package <br />
-              <span className="text-[#6B21AB] italic font-normal">
+              <span className="text-[#6B21AB] dark:text-[#FC5BDA] italic font-normal">
                 For Your Brand?
               </span>
             </h2>
 
-            <p className="text-[#000000]/70 text-sm max-w-lg mx-auto font-medium leading-relaxed">
+            <p className="text-[#000000]/70 dark:text-[#FFFFFF]/70 text-sm max-w-lg mx-auto font-medium leading-relaxed">
               We offer custom retainers and strategy packages tailored to your project goals.
             </p>
 

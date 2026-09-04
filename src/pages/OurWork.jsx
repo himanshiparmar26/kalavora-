@@ -1,340 +1,174 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Sparkles, 
-  Play, 
-  X, 
-  MessageCircle,
-  Eye,
-  Award
-} from 'lucide-react';
+import React, { useState } from 'react';
+import { ExternalLink, Sparkles, ArrowUpRight } from 'lucide-react';
 
 export default function OurWork() {
-  const whatsappNumber = "917877145565";
-  const [activeTab, setActiveTab] = useState('All');
-  const [selectedMedia, setSelectedMedia] = useState(null);
-
-  const categories = [
-    'All',
-    'Branding',
-    'Video & Reels',
-    'Invitations',
-    'Magazines & Print'
-  ];
-
-  const portfolioProjects = [
+  const myProjects = [
     {
       id: 1,
-      title: "Kalavora Brand Visual Identity System",
-      category: "Branding",
-      image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&q=80&w=800",
-      description: "Complete visual guidelines, modern logo typography, and high-converting marketing assets.",
-      tags: ["Logo", "Brand Guide", "Identity"],
-      type: "image"
+      title: "Starbucks Launch Banner",
+      category: "Social Media Ad",
+      image: "/image/starbucks-post.jpg",
+      description: "Opening Soon social media banner design with premium visual aesthetic.",
+      tags: ["Poster", "Branding", "Social Media"],
+      link: "#"
     },
     {
       id: 2,
-      title: "3D Motion Promo Reel",
-      category: "Video & Reels",
-      image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=800",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-      description: "High-converting Instagram Reel featuring 3D product motion graphics.",
-      tags: ["Reels", "Motion Graphics", "3D"],
-      type: "video"
+      title: "Nike Fly Promotion",
+      category: "Social Media Ad",
+      image: "/image/nike-post.jpg",
+      description: "Dynamic product poster and social media creative for footwear brand.",
+      tags: ["Product Ad", "Typography", "Footwear"],
+      link: "#"
     },
     {
       id: 3,
-      title: "Royal Animated Wedding Invite",
-      category: "Invitations",
-      image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800",
-      description: "Interactive digital WhatsApp invitation video with custom RSVP music.",
-      tags: ["Digital Card", "Wedding", "Animation"],
-      type: "image"
+      title: "Beverage Iced Menu Design",
+      category: "Graphic Design",
+      image: "/image/iced-menu.jpg",
+      description: "Modern food & beverage vertical menu layout with rich color contrast.",
+      tags: ["Menu Design", "Print", "Layout"],
+      link: "#"
     },
     {
       id: 4,
-      title: "Luxury Fashion Magazine Spread",
-      category: "Magazines & Print",
-      image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=800",
-      description: "Modern editorial layout design with high-end print typography.",
-      tags: ["Magazine", "Catalog", "Editorial"],
-      type: "image"
+      title: "Digital Marketing Campaign",
+      category: "Digital Marketing",
+      image: "/image/agency-post-.jpg",
+      description: "High-converting social media promotional template for business growth.",
+      tags: ["Marketing", "Lead Gen", "Banner"],
+      link: "#"
     },
     {
       id: 5,
-      title: "Kalavora Identity Bento Grid",
-      category: "Branding",
-      image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
-      description: "Modern neon-dark studio branding and social media templates.",
-      tags: ["Identity", "Typography", "Bento"],
-      type: "image"
+      title: "Creative Agency Showcase",
+      category: "Graphic Design",
+      image: "/image/agency-post-2.jpg",
+      description: "Professional corporate services promotional creative for agency branding.",
+      tags: ["Agency", "Corporate", "Visuals"],
+      link: "#"
     },
     {
       id: 6,
-      title: "Cinematic Event Teaser Video",
-      category: "Video & Reels",
-      image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=800",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-      description: "Fast-paced event highlight edit with color grading and sound design.",
-      tags: ["Video Editing", "Color Grading", "Teaser"],
-      type: "video"
+      title: "Corporate Recruitment Poster",
+      category: "Brand Identity",
+      image: "/image/hiring-post.jpg",
+      description: "Clean and authoritative 'We Are Hiring' template design for corporate recruitment.",
+      tags: ["Hiring", "Corporate", "Social Post"],
+      link: "#"
+    },
+    {
+      id: 7,
+      title: "Visual Agency Services",
+      category: "Graphic Design",
+      image: "/image/agency-post-3.jpg",
+      description: "Modern visual layout showcasing full-suite creative marketing capabilities.",
+      tags: ["Marketing", "Services", "Branding"],
+      link: "#"
     }
   ];
 
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') setSelectedMedia(null);
-    };
-    if (selectedMedia) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [selectedMedia]);
+  const categories = ["All", "Graphic Design", "Social Media Ad", "Digital Marketing", "Brand Identity"];
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredProjects = activeTab === 'All' 
-    ? portfolioProjects 
-    : portfolioProjects.filter(p => p.category === activeTab);
-
-  const topProjects = filteredProjects.slice(0, 3);
-  const remainingProjects = filteredProjects.slice(3);
-
-  const handleWhatsAppInquiry = (projectTitle) => {
-    const text = `Hi Kalavora Team! I saw your project "${projectTitle}" in your portfolio. I want something similar for my business.`;
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
-  };
-
-  const ProjectCard = ({ project }) => (
-    <div className="p-4 rounded-3xl bg-[#000000]/[0.02] border border-[#000000]/10 hover:border-[#6B21AB]/40 hover:shadow-lg hover:shadow-[#000000]/5 transition-all duration-300 flex flex-col justify-between group min-h-[340px]">
-      <div>
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-[#F3F4F6] mb-4">
-          <img 
-            src={project.image} 
-            alt={project.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100" 
-          />
-          
-          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-            {project.type === 'video' ? (
-              <button 
-                onClick={() => setSelectedMedia(project)}
-                aria-label={`Play video for ${project.title}`}
-                className="p-3.5 rounded-full bg-[#FC5BDA] text-white hover:scale-110 transition-transform cursor-pointer shadow-md"
-              >
-                <Play className="w-5 h-5 fill-current" />
-              </button>
-            ) : (
-              <button 
-                onClick={() => setSelectedMedia(project)}
-                aria-label={`View ${project.title}`}
-                className="p-3.5 rounded-full bg-white text-[#6B21AB] border border-[#6B21AB]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:scale-110 cursor-pointer shadow-md"
-              >
-                <Eye className="w-5 h-5" />
-              </button>
-            )}
-          </div>
-
-          <span className="absolute top-3 left-3 text-[10px] font-bold px-3 py-1 rounded-xl bg-[#FFFFFF] border border-[#6B21AB]/30 text-[#6B21AB] shadow-sm">
-            {project.category}
-          </span>
-        </div>
-
-        <div className="px-2 space-y-2">
-          <h3 className="text-lg font-bold text-[#000000] group-hover:text-[#6B21AB] transition-colors leading-snug">
-            {project.title}
-          </h3>
-          <p className="text-[#000000]/70 text-xs font-medium leading-relaxed mb-3">
-            {project.description}
-          </p>
-
-          <div className="flex items-center gap-1.5 flex-wrap">
-            {project.tags.map((tag, idx) => (
-              <span key={idx} className="text-[10px] text-[#6B21AB] bg-[#6B21AB]/10 px-2.5 py-0.5 rounded-md font-bold">
-                #{tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="p-2 pt-4">
-        <button
-          onClick={() => handleWhatsAppInquiry(project.title)}
-          className="w-full py-2.5 px-4 rounded-xl bg-[#FFFFFF] border border-[#6B21AB]/30 hover:border-[#25D366] hover:bg-[#25D366]/10 text-xs font-bold text-[#000000] hover:text-[#25D366] flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer shadow-sm"
-        >
-          <MessageCircle className="w-4 h-4 text-[#25D366]" />
-          Order Similar Design
-        </button>
-      </div>
-    </div>
-  );
+  const filteredProjects = selectedCategory === "All" 
+    ? myProjects 
+    : myProjects.filter(p => p.category === selectedCategory);
 
   return (
-    <section className="bg-[#FFFFFF] text-[#000000] pt-12 pb-24 px-6 relative w-full min-h-screen font-sans">
+    <section className="bg-[#000000] text-white py-20 px-6 min-h-screen relative overflow-hidden font-sans">
       
-      <div className="max-w-6xl mx-auto space-y-16">
+      {/* Background Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#6B21AB]/15 blur-[160px] pointer-events-none rounded-full" />
+
+      <div className="max-w-7xl mx-auto relative z-10 space-y-12">
         
         {/* Header Section */}
-        <div className="grid md:grid-cols-12 gap-8 items-center text-center md:text-left pt-4">
-          <div className="md:col-span-8 space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#000000]/10 bg-[#000000]/[0.03] text-[#000000] text-xs font-bold tracking-widest uppercase">
-              <span className="w-2 h-2 rounded-full bg-[#FC5BDA] animate-pulse"></span>
-              <Sparkles className="w-3.5 h-3.5 text-[#6B21AB]" /> Selected Projects
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-extrabold text-[#000000] leading-tight tracking-tight">
-              Our Featured <span className="text-[#6B21AB] italic font-normal">Work</span>
-            </h1>
-            
-            <p className="text-[#000000]/70 text-sm md:text-base max-w-xl font-medium leading-relaxed">
-              Explore our creative design, video editing, digital cards, and editorial layouts crafted for maximum impact.
-            </p>
+        <div className="text-center space-y-4 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#6B21AB]/20 border border-[#6B21AB]/40 text-purple-300 text-xs font-bold">
+            <Sparkles className="w-3.5 h-3.5 text-[#6B21AB]" />
+            <span>Showcase Portfolio</span>
           </div>
 
-          <div className="md:col-span-4 flex justify-center items-center">
-            <img 
-              src="/mascot-work.png" 
-              alt="Kalavora Creative Mascot" 
-              className="w-48 md:w-56 h-auto object-contain hover:scale-105 transition-transform duration-300"
-            />
-          </div>
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white">
+            Our Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-[#6B21AB]">Works</span>
+          </h1>
+
+          <p className="text-gray-400 text-sm">
+            Explore our curated projects, visual brand identities, and high-impact digital designs.
+          </p>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex items-center justify-center gap-2 md:gap-3 flex-wrap pb-2">
-          {categories.map((category) => (
+        {/* Category Filters */}
+        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
+          {categories.map((cat, i) => (
             <button
-              key={category}
-              onClick={() => setActiveTab(category)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all duration-300 cursor-pointer ${
-                activeTab === category
-                  ? 'bg-[#6B21AB] text-[#FFFFFF] shadow-sm'
-                  : 'bg-[#000000]/[0.02] text-[#000000]/70 border border-[#000000]/10 hover:border-[#6B21AB]/40 hover:text-[#000000]'
+              key={i}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer ${
+                selectedCategory === cat
+                  ? "bg-[#6B21AB] text-white shadow-lg shadow-[#6B21AB]/30"
+                  : "bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:border-[#6B21AB]/50"
               }`}
             >
-              {category}
+              {cat}
             </button>
           ))}
         </div>
 
-        {/* First 3 Portfolio Items */}
-        {topProjects.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {topProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        )}
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
+          {filteredProjects.map((project) => (
+            <div
+              key={project.id}
+              className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[#6B21AB]/60 transition-all duration-500 hover:-translate-y-1 flex flex-col justify-between"
+            >
+              {/* Image Container with Full Image Fit (No Crop) */}
+              <div className="relative w-full aspect-square bg-black/60 overflow-hidden flex items-center justify-center p-2">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-lg"
+                />
+                <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-purple-300 border border-purple-500/30 text-[10px] uppercase font-bold px-3 py-1 rounded-full z-10">
+                  {project.category}
+                </div>
+              </div>
 
-        {/* Mascot Spotlight Banner #2 */}
-        <div className="p-8 md:p-10 rounded-3xl bg-[#000000]/[0.015] border border-[#000000]/10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-3 text-center md:text-left max-w-xl">
-            <span className="text-[#6B21AB] text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 bg-[#6B21AB]/10 rounded-full inline-flex items-center gap-1.5">
-              <Award className="w-3.5 h-3.5 text-[#6B21AB]" /> High-Performance Visuals
-            </span>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-[#000000] tracking-tight">
-              Want Custom Visual Assets for Your Next Campaign?
-            </h3>
-            <p className="text-[#000000]/70 text-xs md:text-sm font-medium leading-relaxed">
-              We design brand identities, reel graphics, and ads engineered to hook attention and drive real lead conversions.
-            </p>
-          </div>
+              {/* Card Details */}
+              <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <h3 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors flex items-center justify-between">
+                    <span>{project.title}</span>
+                    <ArrowUpRight className="w-4 h-4 text-gray-500 group-hover:text-purple-400 transition-colors" />
+                  </h3>
+                  <p className="text-xs text-gray-400 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
 
-          <div className="shrink-0">
-            <img 
-              src="/mascot-marketing.png" 
-              alt="Quality Design Mascot" 
-              className="w-36 md:w-44 h-auto object-contain hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        </div>
+                <div className="pt-4 border-t border-white/5 flex items-center justify-between gap-2">
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tags.map((tag, idx) => (
+                      <span key={idx} className="text-[10px] bg-white/5 text-gray-400 px-2.5 py-1 rounded-md border border-white/5">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-        {/* Remaining Portfolio Items */}
-        {remainingProjects.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {remainingProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        )}
-
-        {/* Bottom CTA Banner */}
-        <div className="pt-8">
-          <div className="text-center space-y-6 text-[#000000]">
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#000000]">
-              Ready to Upgrade Your <br />
-              <span className="text-[#6B21AB] italic font-normal">
-                Brand Assets?
-              </span>
-            </h2>
-
-            <p className="text-[#000000]/70 text-sm max-w-lg mx-auto font-medium leading-relaxed">
-              Chat directly with our design team to discuss your custom project deliverables.
-            </p>
-
-            <div className="flex justify-center pt-2">
-              <button
-                onClick={() => handleWhatsAppInquiry("New Custom Design Project")}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#25D366] text-[#FFFFFF] font-extrabold text-xs uppercase tracking-wider hover:bg-[#1ebd53] transition-all duration-300 shadow-md cursor-pointer"
-              >
-                <MessageCircle className="w-4 h-4 text-[#FFFFFF] fill-current" /> Start Discussion on WhatsApp
-              </button>
+                  <a
+                    href={project.link}
+                    className="p-2 rounded-xl bg-[#6B21AB]/20 border border-[#6B21AB]/40 text-purple-300 hover:bg-[#6B21AB] hover:text-white transition-all"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
       </div>
-
-      {/* Lightbox / Video Modal */}
-      {selectedMedia && (
-        <div 
-          className="fixed inset-0 z-50 bg-[#000000]/40 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={() => setSelectedMedia(null)}
-        >
-          <div 
-            className="relative w-full max-w-3xl bg-[#FFFFFF] border border-[#000000]/10 rounded-3xl overflow-hidden p-6 space-y-4 shadow-2xl text-[#000000]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button 
-              onClick={() => setSelectedMedia(null)}
-              aria-label="Close modal"
-              className="absolute top-4 right-4 p-2 rounded-full bg-[#FFFFFF] text-[#000000]/60 border border-[#000000]/10 hover:text-[#000000] transition-colors cursor-pointer z-10"
-            >
-              <X className="w-5 h-5 text-[#6B21AB]" />
-            </button>
-
-            <h3 className="text-xl font-bold text-[#6B21AB] pr-8">{selectedMedia.title}</h3>
-
-            {selectedMedia.type === 'video' ? (
-              <video controls autoPlay className="w-full aspect-video rounded-2xl bg-[#000000]">
-                <source src={selectedMedia.videoUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <img src={selectedMedia.image} alt={selectedMedia.title} className="w-full max-h-[70vh] object-contain rounded-2xl border border-[#000000]/10" />
-            )}
-
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
-              <p className="text-xs text-[#000000]/70 font-medium">{selectedMedia.description}</p>
-              <button
-                onClick={() => {
-                  const title = selectedMedia.title;
-                  setSelectedMedia(null);
-                  handleWhatsAppInquiry(title);
-                }}
-                className="py-2.5 px-5 rounded-xl bg-[#25D366] text-[#FFFFFF] font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#1ebd53] transition-colors shrink-0 cursor-pointer shadow-md"
-              >
-                <MessageCircle className="w-4 h-4 text-[#FFFFFF] fill-current" /> Inquiry on WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
     </section>
   );
 }

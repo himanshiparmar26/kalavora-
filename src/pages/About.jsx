@@ -109,7 +109,7 @@ export default function About() {
   ];
 
   return (
-    <div className="bg-[#FFFFFF] text-[#000000] min-h-screen pt-12 pb-24 font-sans selection:bg-[#6B21AB] selection:text-white">
+    <div className="bg-[#FFFFFF] dark:bg-[#090D16] text-[#000000] dark:text-[#FFFFFF] min-h-screen pt-12 pb-24 font-sans selection:bg-[#6B21AB] selection:text-white transition-colors duration-300">
       
       <div className="max-w-7xl mx-auto px-6 space-y-24">
         
@@ -120,26 +120,26 @@ export default function About() {
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
             
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6B21AB]/20 bg-[#FFFFFF] text-[#000000] text-xs font-bold tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6B21AB]/20 dark:border-[#6B21AB]/40 bg-[#FFFFFF] dark:bg-[#131927] text-[#000000] dark:text-[#FFFFFF] text-xs font-bold tracking-widest uppercase shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#FC5BDA] animate-pulse"></span>
-              <Sparkles className="w-3.5 h-3.5 text-[#6B21AB]" /> Best Digital Marketing Agency in Udaipur
+              <Sparkles className="w-3.5 h-3.5 text-[#6B21AB] dark:text-[#FC5BDA]" /> Best Digital Marketing Agency in Udaipur
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-[#000000]">
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-[#000000] dark:text-[#FFFFFF]">
               Grow Your Brand <br />
-              <span className="text-3xl md:text-5xl font-normal text-[#000000]/70 italic">
-                With <span className="text-[#6B21AB] not-italic font-extrabold">Unconditional Market Control</span>
+              <span className="text-3xl md:text-5xl font-normal text-[#000000]/70 dark:text-[#FFFFFF]/70 italic">
+                With <span className="text-[#6B21AB] dark:text-[#FC5BDA] not-italic font-extrabold">Unconditional Market Control</span>
               </span>
             </h1>
             
-            <p className="text-[#000000]/70 text-base md:text-lg max-w-xl leading-relaxed font-medium">
-              In today's fast-developing business landscape, simply having a website is not enough. At <span className="text-[#000000] font-bold">kalavora.in</span>, we engineer data-driven digital solutions.
+            <p className="text-[#000000]/70 dark:text-[#FFFFFF]/70 text-base md:text-lg max-w-xl leading-relaxed font-medium">
+              In today's fast-developing business landscape, simply having a website is not enough. At <span className="text-[#000000] dark:text-[#FFFFFF] font-bold">kalavora.in</span>, we engineer data-driven digital solutions.
             </p>
             
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
               <button
                 onClick={handleWhatsAppRedirect}
-                className="group px-7 py-3.5 rounded-full bg-[#6B21AB] text-[#FFFFFF] font-semibold text-xs uppercase tracking-wider hover:bg-[#581C87] transition-all duration-300 flex items-center gap-2 cursor-pointer"
+                className="group px-7 py-3.5 rounded-full bg-[#6B21AB] text-[#FFFFFF] font-semibold text-xs uppercase tracking-wider hover:bg-[#581C87] transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-md"
               >
                 Start Growth Call 
                 <ArrowUpRight className="w-4 h-4 text-[#FFFFFF] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -147,14 +147,14 @@ export default function About() {
               
               <button
                 onClick={handleWhatsAppRedirect}
-                className="px-7 py-3.5 rounded-full border border-[#6B21AB]/30 bg-[#FFFFFF] text-[#000000] font-bold text-xs uppercase tracking-wider hover:bg-[#6B21AB]/5 transition-all duration-300 flex items-center gap-2 cursor-pointer"
+                className="px-7 py-3.5 rounded-full border border-[#6B21AB]/30 dark:border-[#6B21AB]/50 bg-[#FFFFFF] dark:bg-[#131927] text-[#000000] dark:text-[#FFFFFF] font-bold text-xs uppercase tracking-wider hover:bg-[#6B21AB]/5 dark:hover:bg-[#6B21AB]/20 transition-all duration-300 flex items-center gap-2 cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4 text-[#6B21AB]" /> Quick WhatsApp
+                <MessageCircle className="w-4 h-4 text-[#6B21AB] dark:text-[#FC5BDA]" /> Quick WhatsApp
               </button>
             </div>
           </div>
 
-          {/* Right Column: Clean Mascot Display (No Box & No Glow) */}
+          {/* Right Column: Mascot Display */}
           <div className="lg:col-span-5 flex justify-center items-center">
             <img 
               src={mascotAbout} 
@@ -165,7 +165,7 @@ export default function About() {
 
         </section>
 
-        {/* Feature Grid 1 (First 4 Services) - No Outer Box/Border */}
+        {/* Feature Grid 1 (First 4 Services) */}
         <section className="grid md:grid-cols-4 gap-8">
           {services.slice(0, 4).map((item, idx) => (
             <div 
@@ -173,17 +173,17 @@ export default function About() {
               className="flex flex-col justify-between group"
             >
               <div>
-                <div className="p-3 rounded-xl bg-[#6B21AB] text-[#FFFFFF] w-fit mb-5">
+                <div className="p-3 rounded-xl bg-[#6B21AB] text-[#FFFFFF] w-fit mb-5 shadow-sm">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-bold text-[#000000] mb-2 tracking-wide line-clamp-2">{item.title}</h3>
-                <p className="text-[#000000]/70 text-xs leading-relaxed font-medium mb-6 line-clamp-2">{item.tagline}</p>
+                <h3 className="text-lg font-bold text-[#000000] dark:text-[#FFFFFF] mb-2 tracking-wide line-clamp-2">{item.title}</h3>
+                <p className="text-[#000000]/70 dark:text-[#FFFFFF]/70 text-xs leading-relaxed font-medium mb-6 line-clamp-2">{item.tagline}</p>
               </div>
 
               <button
                 type="button"
                 onClick={() => setSelectedIdx(idx)}
-                className="py-2 px-4 border border-[#6B21AB]/30 bg-[#FFFFFF] text-[#6B21AB] hover:bg-[#6B21AB] hover:text-[#FFFFFF] text-[11px] font-bold uppercase tracking-wider flex items-center justify-between transition-all duration-300 cursor-pointer rounded-xl group/btn"
+                className="py-2 px-4 border border-[#6B21AB]/30 dark:border-[#6B21AB]/50 bg-[#FFFFFF] dark:bg-[#131927] text-[#6B21AB] dark:text-[#FC5BDA] hover:bg-[#6B21AB] hover:text-[#FFFFFF] dark:hover:bg-[#6B21AB] dark:hover:text-[#FFFFFF] text-[11px] font-bold uppercase tracking-wider flex items-center justify-between transition-all duration-300 cursor-pointer rounded-xl group/btn"
               >
                 <span>Read Details</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#FC5BDA] group-hover/btn:text-[#FFFFFF]" />
@@ -192,18 +192,18 @@ export default function About() {
           ))}
         </section>
 
-        {/* Middle Spotlight Banner (Clean Text & Mascot) */}
-        <section className="py-8 border-y border-[#6B21AB]/10">
+        {/* Middle Spotlight Banner */}
+        <section className="py-8 border-y border-[#6B21AB]/10 dark:border-[#6B21AB]/30">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-3 text-center md:text-left max-w-xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6B21AB]/10 text-[#6B21AB] text-xs font-bold uppercase">
-                <Zap className="w-3.5 h-3.5 text-[#6B21AB]" /> Kalavora Growth Engine
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6B21AB]/10 dark:bg-[#6B21AB]/20 text-[#6B21AB] dark:text-[#FC5BDA] text-xs font-bold uppercase">
+                <Zap className="w-3.5 h-3.5 text-[#6B21AB] dark:text-[#FC5BDA]" /> Kalavora Growth Engine
               </div>
-              <h3 className="text-2xl md:text-4xl font-extrabold text-[#000000] tracking-tight leading-snug">
+              <h3 className="text-2xl md:text-4xl font-extrabold text-[#000000] dark:text-[#FFFFFF] tracking-tight leading-snug">
                 Data-Driven Growth Meets <br />
-                <span className="text-[#6B21AB] italic font-normal">Premium Visual Aura</span>
+                <span className="text-[#6B21AB] dark:text-[#FC5BDA] italic font-normal">Premium Visual Aura</span>
               </h3>
-              <p className="text-[#000000]/70 text-sm font-medium leading-relaxed">
+              <p className="text-[#000000]/70 dark:text-[#FFFFFF]/70 text-sm font-medium leading-relaxed">
                 We blend strategic SEO, high-converting social campaigns, and modern brand design to build dominant market leaders.
               </p>
             </div>
@@ -218,7 +218,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* Feature Grid 2 (Next 4 Services) - No Outer Box/Border */}
+        {/* Feature Grid 2 (Next 4 Services) */}
         <section className="grid md:grid-cols-4 gap-8">
           {services.slice(4, 8).map((item, idx) => {
             const actualIdx = idx + 4;
@@ -228,17 +228,17 @@ export default function About() {
                 className="flex flex-col justify-between group"
               >
                 <div>
-                  <div className="p-3 rounded-xl bg-[#6B21AB] text-[#FFFFFF] w-fit mb-5">
+                  <div className="p-3 rounded-xl bg-[#6B21AB] text-[#FFFFFF] w-fit mb-5 shadow-sm">
                     {item.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-[#000000] mb-2 tracking-wide line-clamp-2">{item.title}</h3>
-                  <p className="text-[#000000]/70 text-xs leading-relaxed font-medium mb-6 line-clamp-2">{item.tagline}</p>
+                  <h3 className="text-lg font-bold text-[#000000] dark:text-[#FFFFFF] mb-2 tracking-wide line-clamp-2">{item.title}</h3>
+                  <p className="text-[#000000]/70 dark:text-[#FFFFFF]/70 text-xs leading-relaxed font-medium mb-6 line-clamp-2">{item.tagline}</p>
                 </div>
 
                 <button
                   type="button"
                   onClick={() => setSelectedIdx(actualIdx)}
-                  className="py-2 px-4 border border-[#6B21AB]/30 bg-[#FFFFFF] text-[#6B21AB] hover:bg-[#6B21AB] hover:text-[#FFFFFF] text-[11px] font-bold uppercase tracking-wider flex items-center justify-between transition-all duration-300 cursor-pointer rounded-xl group/btn"
+                  className="py-2 px-4 border border-[#6B21AB]/30 dark:border-[#6B21AB]/50 bg-[#FFFFFF] dark:bg-[#131927] text-[#6B21AB] dark:text-[#FC5BDA] hover:bg-[#6B21AB] hover:text-[#FFFFFF] dark:hover:bg-[#6B21AB] dark:hover:text-[#FFFFFF] text-[11px] font-bold uppercase tracking-wider flex items-center justify-between transition-all duration-300 cursor-pointer rounded-xl group/btn"
                 >
                   <span>Read Details</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#FC5BDA] group-hover/btn:text-[#FFFFFF]" />
@@ -250,22 +250,22 @@ export default function About() {
 
         {/* Bottom Callout Banner */}
         <section className="pt-8">
-          <div className="text-center space-y-6 text-[#000000]">
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#000000]">
+          <div className="text-center space-y-6 text-[#000000] dark:text-[#FFFFFF]">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#000000] dark:text-[#FFFFFF]">
               Have Questions About Our <br />
-              <span className="text-[#6B21AB] italic font-normal">
+              <span className="text-[#6B21AB] dark:text-[#FC5BDA] italic font-normal">
                 Agency Growth Model?
               </span>
             </h2>
 
-            <p className="text-[#000000]/70 text-sm max-w-xl mx-auto font-normal leading-relaxed">
+            <p className="text-[#000000]/70 dark:text-[#FFFFFF]/70 text-sm max-w-xl mx-auto font-normal leading-relaxed">
               Connect directly with our strategy team on WhatsApp for custom consultation.
             </p>
 
             <div className="flex justify-center pt-2">
               <button
                 onClick={handleWhatsAppRedirect}
-                className="px-8 py-3.5 rounded-full bg-[#6B21AB] text-[#FFFFFF] font-extrabold text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-[#581C87] transition-all duration-300 cursor-pointer"
+                className="px-8 py-3.5 rounded-full bg-[#6B21AB] text-[#FFFFFF] font-extrabold text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-[#581C87] transition-all duration-300 cursor-pointer shadow-md"
               >
                 <MessageCircle className="w-4 h-4 text-[#FFFFFF]" /> Direct WhatsApp Chat
               </button>
@@ -278,11 +278,11 @@ export default function About() {
       {/* Detail Modal Overlay */}
       {selectedIdx !== null && (
         <div 
-          className="fixed inset-0 z-50 bg-[#000000]/40 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-[#000000]/60 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setSelectedIdx(null)}
         >
           <div 
-            className="bg-[#FFFFFF] border border-[#6B21AB]/20 max-w-2xl w-full p-6 md:p-8 relative shadow-2xl rounded-2xl text-[#000000]"
+            className="bg-[#FFFFFF] dark:bg-[#131927] border border-[#6B21AB]/20 dark:border-[#6B21AB]/40 max-w-2xl w-full p-6 md:p-8 relative shadow-2xl rounded-2xl text-[#000000] dark:text-[#FFFFFF]"
             onClick={(e) => e.stopPropagation()}
           >
             
@@ -290,26 +290,26 @@ export default function About() {
               type="button"
               onClick={() => setSelectedIdx(null)}
               aria-label="Close details"
-              className="absolute top-5 right-5 text-[#000000]/60 hover:text-[#000000] p-2 border border-[#6B21AB]/20 bg-[#FFFFFF] cursor-pointer rounded-full transition-colors"
+              className="absolute top-5 right-5 text-[#000000]/60 dark:text-[#FFFFFF]/60 hover:text-[#000000] dark:hover:text-[#FFFFFF] p-2 border border-[#6B21AB]/20 dark:border-[#6B21AB]/40 bg-[#FFFFFF] dark:bg-[#090D16] cursor-pointer rounded-full transition-colors"
             >
-              <X className="w-5 h-5 text-[#6B21AB]" />
+              <X className="w-5 h-5 text-[#6B21AB] dark:text-[#FC5BDA]" />
             </button>
 
             <div className="flex items-center gap-4 mb-6 pr-8">
-              <div className="p-3 bg-[#6B21AB] text-[#FFFFFF] rounded-xl shrink-0">
+              <div className="p-3 bg-[#6B21AB] text-[#FFFFFF] rounded-xl shrink-0 shadow-sm">
                 {services[selectedIdx].icon}
               </div>
               <div>
-                <span className="text-[10px] font-extrabold text-[#6B21AB] tracking-widest uppercase">
+                <span className="text-[10px] font-extrabold text-[#6B21AB] dark:text-[#FC5BDA] tracking-widest uppercase">
                   {services[selectedIdx].badge}
                 </span>
-                <h4 className="text-lg md:text-2xl font-bold text-[#000000] leading-tight mt-0.5">
+                <h4 className="text-lg md:text-2xl font-bold text-[#000000] dark:text-[#FFFFFF] leading-tight mt-0.5">
                   {services[selectedIdx].title}
                 </h4>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 pt-5 border-t border-[#6B21AB]/15 text-xs md:text-sm text-[#000000]/80 font-medium leading-relaxed max-h-[50vh] overflow-y-auto">
+            <div className="flex items-start gap-3 pt-5 border-t border-[#6B21AB]/15 dark:border-[#6B21AB]/30 text-xs md:text-sm text-[#000000]/80 dark:text-[#FFFFFF]/80 font-medium leading-relaxed max-h-[50vh] overflow-y-auto">
               <CheckCircle2 className="w-5 h-5 text-[#FC5BDA] shrink-0 mt-0.5" />
               <p>{services[selectedIdx].content}</p>
             </div>

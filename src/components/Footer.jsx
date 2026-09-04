@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 
 export default function Footer() {
-  const whatsappNumber = "917877145565";
+  const whatsappNumber = "919983794014";
 
   const handleWhatsAppRedirect = () => {
     const text = "Hi Kalavora Team! I want to discuss a project with you.";
@@ -23,8 +23,8 @@ export default function Footer() {
     <footer className="bg-[#000000] text-[#FFFFFF] border-t border-[#6B21AB]/30 relative overflow-hidden pt-16 pb-8 px-6 font-sans">
       
       {/* Subtle Background Lighting */}
-      <div className="absolute bottom-0 left-1/4 w-[350px] h-[200px] bg-[#6B21AB]/15 rounded-full blur-[140px] pointer-events-none"></div>
-      <div className="absolute top-0 right-10 w-[250px] h-[250px] bg-[#FC5BDA]/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-1/4 w-[350px] h-[200px] bg-[#6B21AB]/20 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-0 right-10 w-[250px] h-[250px] bg-[#6B21AB]/15 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto space-y-12 relative z-10">
         
@@ -34,10 +34,10 @@ export default function Footer() {
           {/* Col 1: Brand Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-[#FC5BDA] via-[#FFFFFF] to-[#6B21AB]">
+              <span className="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-purple-200 to-[#6B21AB]">
                 KALAVORA
               </span>
-              <Sparkles className="w-4 h-4 text-[#FC5BDA]" />
+              <Sparkles className="w-4 h-4 text-[#6B21AB]" />
             </div>
 
             <p className="text-gray-400 text-xs leading-relaxed font-normal">
@@ -46,60 +46,60 @@ export default function Footer() {
 
             <button
               onClick={handleWhatsAppRedirect}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#6B21AB]/20 border border-[#6B21AB]/50 text-[#FC5BDA] text-xs font-bold hover:bg-[#6B21AB] hover:text-white transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#6B21AB]/20 border border-[#6B21AB]/50 text-white text-xs font-bold hover:bg-[#6B21AB] hover:text-white transition-all duration-300 cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 text-[#FC5BDA]" />
+              <MessageCircle className="w-4 h-4 text-[#6B21AB]" />
               Chat on WhatsApp
             </button>
           </div>
 
           {/* Col 2: Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#FC5BDA]">
+            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#6B21AB]">
               Quick Links
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-400 font-normal">
               <li>
-                <Link to="/" className="hover:text-[#FFFFFF] transition-colors">Home</Link>
+                <Link to="/" className="hover:text-purple-400 transition-colors">Home</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-[#FFFFFF] transition-colors">About Us</Link>
+                <Link to="/about" className="hover:text-purple-400 transition-colors">About Us</Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FFFFFF] transition-colors">Our Services</Link>
+                <Link to="/services" className="hover:text-purple-400 transition-colors">Our Services</Link>
               </li>
               <li>
-                <Link to="/work" className="hover:text-[#FFFFFF] transition-colors">Our Work</Link>
+                <Link to="/work" className="hover:text-purple-400 transition-colors">Our Work</Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-[#FFFFFF] transition-colors">Blog</Link>
+                <Link to="/blog" className="hover:text-purple-400 transition-colors">Blog</Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-[#FFFFFF] transition-colors">Contact Us</Link>
+                <Link to="/contact" className="hover:text-purple-400 transition-colors">Contact Us</Link>
               </li>
             </ul>
           </div>
 
           {/* Col 3: Direct Contact Info */}
           <div className="space-y-4">
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#FC5BDA]">
+            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#6B21AB]">
               Contact Us
             </h4>
             <ul className="space-y-3 text-xs text-gray-400 font-normal">
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#FC5BDA] shrink-0" />
+                <Phone className="w-4 h-4 text-[#6B21AB] shrink-0" />
                 <a href="tel:+917877145565" className="hover:text-[#FFFFFF] transition-colors">
                   +91 78771 45565
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#FC5BDA] shrink-0" />
+                <Mail className="w-4 h-4 text-[#6B21AB] shrink-0" />
                 <a href="mailto:kalavoraindia@gmail.com" className="hover:text-[#FFFFFF] transition-colors">
                   kalavoraindia@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#FC5BDA] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#6B21AB] shrink-0 mt-0.5" />
                 <span>Kalavora Creative Studio, India</span>
               </li>
             </ul>
@@ -107,7 +107,7 @@ export default function Footer() {
 
           {/* Col 4: Social Connections */}
           <div className="space-y-4">
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#FC5BDA]">
+            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#6B21AB]">
               Connect With Us
             </h4>
             <p className="text-gray-400 text-xs font-normal">
@@ -126,7 +126,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.label}
-                  className="p-2.5 rounded-xl bg-[#6B21AB]/10 border border-[#6B21AB]/30 text-[#FC5BDA] hover:bg-[#6B21AB] hover:text-[#FFFFFF] transition-all duration-300"
+                  className="p-2.5 rounded-xl bg-[#6B21AB]/10 border border-[#6B21AB]/30 text-white hover:bg-[#6B21AB] hover:text-[#FFFFFF] transition-all duration-300"
                 >
                   {item.icon}
                 </a>
@@ -134,7 +134,7 @@ export default function Footer() {
               <button
                 onClick={handleWhatsAppRedirect}
                 aria-label="WhatsApp Direct"
-                className="p-2.5 rounded-xl bg-[#6B21AB]/10 border border-[#6B21AB]/30 text-[#FC5BDA] hover:bg-[#6B21AB] hover:text-[#FFFFFF] transition-all duration-300 cursor-pointer"
+                className="p-2.5 rounded-xl bg-[#6B21AB]/10 border border-[#6B21AB]/30 text-white hover:bg-[#6B21AB] hover:text-[#FFFFFF] transition-all duration-300 cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4" />
               </button>
@@ -147,8 +147,8 @@ export default function Footer() {
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-normal">
           <p>© {new Date().getFullYear()} Kalavora Creative Studio. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link to="/privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-gray-300 transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="hover:text-purple-400 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-purple-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
 

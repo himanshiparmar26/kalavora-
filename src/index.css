@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+/* 1. Define Dark Variant explicitly for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 2. Custom Color Variables */
+@theme {
+  --color-indigo-bloom: #6B21AB;
+  --color-cotton-bloom: #FC5BDA;
+}
+
+/* 3. Global Base Background Reset */
+:root {
+  color-scheme: light dark;
+}
+
+/* Page default background */
+html {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+html.dark {
+  background-color: #090D16;
+  color: #ffffff;
+}
