@@ -1,32 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Sparkles, Layers, Zap, Star, ArrowUpRight, MessageCircle, ArrowRight, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const heroMascots = [
-  '/mascot.png',
-  '/mascot-marketing.png',
-  '/mascot-work.png'
-];
-
 export default function Home() {
   const whatsappNumber = "917877145565";
-
-  const [currentMascotIndex, setCurrentMascotIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(false);
-
-      setTimeout(() => {
-        setCurrentMascotIndex((prevIndex) => (prevIndex + 1) % heroMascots.length);
-        setFade(true);
-      }, 300);
-
-    }, 3500);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const handleWhatsAppRedirect = () => {
     const text = "Hi Kalavora Team! I want to discuss a project with you.";
@@ -79,15 +56,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column: Direct Mascot */}
+          {/* Right Column: Hero Image */}
           <div className="lg:col-span-5 flex justify-center items-center">
-            <div className="w-72 h-72 md:w-88 md:h-88 flex items-center justify-center p-2">
+            <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-[#6B21AB]/30 bg-[#131927] group">
               <img 
-                src={heroMascots[currentMascotIndex]} 
-                alt="Kalavora Mascot Dynamic" 
-                className={`w-full h-full object-contain filter drop-shadow-md transition-all duration-300 transform ${
-                  fade ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                }`} 
+                src="/professional-woman-at-desk.png" 
+                alt="Kalavora Creative Desk" 
+                className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105" 
               />
             </div>
           </div>
@@ -140,20 +115,15 @@ export default function Home() {
               </h3>
             </div>
 
-            <div className="flex items-end justify-between pt-6">
+            <div className="flex items-center justify-between pt-6">
               <Link
                 to="/contact"
                 aria-label="Contact Us"
-                className="p-3 rounded-full bg-[#6B21AB] text-white hover:bg-[#581C87] transition-all duration-300 shadow-sm"
+                className="p-3 rounded-full bg-[#6B21AB] text-white hover:bg-[#581C87] transition-all duration-300 shadow-sm flex items-center gap-2 text-xs font-semibold uppercase tracking-wider"
               >
+                <span>Get Proposal</span>
                 <ArrowUpRight className="w-4 h-4 text-white" />
               </Link>
-
-              <img 
-                src="/mascot-marketing.png" 
-                alt="Marketing Mascot" 
-                className="w-20 h-20 object-contain group-hover:scale-105 transition-transform duration-300 filter drop-shadow-sm" 
-              />
             </div>
           </div>
 
@@ -166,20 +136,15 @@ export default function Home() {
               </h3>
             </div>
 
-            <div className="flex items-end justify-between pt-6">
+            <div className="flex items-center justify-between pt-6">
               <button
                 onClick={handleWhatsAppRedirect}
                 aria-label="WhatsApp Growth Team"
-                className="p-3 rounded-full bg-[#6B21AB] text-white hover:bg-[#581C87] transition-all duration-300 cursor-pointer shadow-sm"
+                className="p-3 rounded-full bg-[#6B21AB] text-white hover:bg-[#581C87] transition-all duration-300 cursor-pointer shadow-sm flex items-center gap-2 text-xs font-semibold uppercase tracking-wider"
               >
+                <span>Chat Now</span>
                 <Briefcase className="w-4 h-4 text-white" />
               </button>
-
-              <img 
-                src="/mascot.png" 
-                alt="Dev Mascot" 
-                className="w-20 h-20 object-contain group-hover:scale-105 transition-transform duration-300 filter drop-shadow-sm" 
-              />
             </div>
           </div>
 
@@ -192,20 +157,15 @@ export default function Home() {
               </h3>
             </div>
 
-            <div className="flex items-end justify-between pt-6">
+            <div className="flex items-center justify-between pt-6">
               <Link
                 to="/workplace"
                 aria-label="Our Work"
-                className="p-3 rounded-full bg-[#6B21AB] text-white hover:bg-[#581C87] transition-all duration-300 shadow-sm"
+                className="p-3 rounded-full bg-[#6B21AB] text-white hover:bg-[#581C87] transition-all duration-300 shadow-sm flex items-center gap-2 text-xs font-semibold uppercase tracking-wider"
               >
+                <span>View Works</span>
                 <ArrowRight className="w-4 h-4 text-white" />
               </Link>
-
-              <img 
-                src="/mascot-work.png" 
-                alt="Work Mascot" 
-                className="w-20 h-20 object-contain group-hover:scale-105 transition-transform duration-300 filter drop-shadow-sm" 
-              />
             </div>
           </div>
 
