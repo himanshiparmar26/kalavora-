@@ -56,13 +56,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column: Hero Image */}
+          {/* Right Column: Optimized Hero Image */}
           <div className="lg:col-span-5 flex justify-center items-center">
-            <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-[#6B21AB]/30 bg-[#131927] group">
+            <div className="w-full max-w-xs rounded-2xl overflow-hidden shadow-2xl border border-[#6B21AB]/30 bg-[#131927] group">
               <img 
                 src="/professional-woman-at-desk.png" 
                 alt="Kalavora Creative Desk" 
-                className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105" 
+                className="w-full h-auto object-cover transform transition-transform duration-300 group-hover:scale-105" 
               />
             </div>
           </div>
@@ -149,10 +149,10 @@ export default function Home() {
           </div>
 
           {/* Card 3 */}
-          <div className="p-8 rounded-2xl bg-white dark:bg-[#131927] border border-slate-200 dark:border-[#6B21AB]/40 flex flex-col justify-between transition-all duration-300 hover:border-[#6B21AB] hover:shadow-lg hover:-translate-y-1 group relative shadow-sm h-full min-h-[260px]">
+          <div className="p-8 rounded-2xl bg-[#131927] border border-[#6B21AB]/40 flex flex-col justify-between transition-all duration-300 hover:border-[#6B21AB] hover:shadow-lg hover:-translate-y-1 group relative shadow-sm h-full min-h-[260px]">
             <div className="space-y-2">
-              <span className="text-[#6B21AB] dark:text-[#FC5BDA] text-[10px] uppercase tracking-widest font-extrabold">Portfolio</span>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white leading-snug">
+              <span className="text-[#FC5BDA] text-[10px] uppercase tracking-widest font-extrabold">Portfolio</span>
+              <h3 className="text-base font-bold text-white leading-snug">
                 Want to see how we build iconic brand identities?
               </h3>
             </div>
