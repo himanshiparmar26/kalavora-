@@ -6,7 +6,6 @@ export default function Navbar() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  // Initialize theme state correctly from localStorage/system preference
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
@@ -18,7 +17,6 @@ export default function Navbar() {
     return false;
   });
 
-  // Handle HTML root class & localStorage updates on state change
   useEffect(() => {
     const root = document.documentElement;
     if (isDarkMode) {
@@ -79,7 +77,6 @@ export default function Navbar() {
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-4">
           
-          {/* THEME TOGGLE BUTTON (UPDATED ICON LOGIC) */}
           <button
             onClick={toggleTheme}
             className="p-2.5 rounded-full border border-gray-200 dark:border-[#6B21AB]/40 bg-gray-100 dark:bg-[#131927] text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-[#1F293D] transition-all duration-300 focus:outline-none cursor-pointer"
@@ -87,15 +84,12 @@ export default function Navbar() {
             title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
           >
             {isDarkMode ? (
-              /* Dark Mode Active -> Show Moon Icon */
               <Moon className="w-4 h-4 text-[#FC5BDA] transition-transform hover:-rotate-12" />
             ) : (
-              /* Light Mode Active -> Show Sun Icon */
               <Sun className="w-4 h-4 text-amber-500 transition-transform hover:rotate-45" />
             )}
           </button>
 
-          {/* GET IN TOUCH Button */}
           <Link
             to="/contact"
             className="group inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#6B21AB] border border-[#6B21AB] text-[#FFFFFF] text-xs font-medium tracking-wide hover:bg-[#581C87] hover:border-[#FC5BDA]/60 transition-all duration-300 shadow-sm"
